@@ -53,6 +53,13 @@ const ObjectCursor = withProjectedPosition()(({ positionProjected }) => {
 const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 
 export default class Ball extends Component {
+  constructor(props){
+      super(props);
+      this.state = {
+          type: this.props.type
+      };
+  }
+
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -65,13 +72,32 @@ export default class Ball extends Component {
           onPlaneUpdate={console.log} // event listener for plane update
         >
 
+        { this.state.type === 'box' &&
+          <ARKit.Box
+            id="object_1"
+            position={{ x: 0, y: 0, z: -0.2 }}
+            shape={{ width: 0.1, height: 0.1, length: 0.1, chamfer: 0.01 }}
+            material={{ diffuse }}
+          />
+        }
+
+        { this.state.type === 'circle' &&
           <ARKit.Sphere
             id="object_2"
             position={{ x: 0, y: 0, z: -0.2 }}
             shape={{ radius: 0.05 }}
             material={{ diffuse }}
           />
+        }
 
+        { this.state.type === 'triangle' &&
+          <ARKit.Pyramid
+            id="object_3"
+            position={{ x: 0, y: 0, z: -0.2 }}
+            shape={{ width: 0.1, height: 0.1, length: 0.1 }}
+            material={{ diffuse }}
+          />
+        }
 
           <ARKit.Light
             position={{ x: 1, y: 3, z: 2 }}

@@ -12,10 +12,12 @@ export default class Navigator extends Component {
         };
     }
 
-    navigateBall = () => {
+    navigateBall = (type) => {
         this.props.navigator.push({
             component: Ball,
-            passProps: {},
+            passProps: {
+              type: type
+            },
             title: 'geometry',
             backButtonTitle: '',
             leftButtonTitle: ''
@@ -30,8 +32,8 @@ export default class Navigator extends Component {
             >
                   <Icon.TabBarItem
                       title=""
-                      iconName="record"
-                      selectedIconName="record"
+                      iconName="target"
+                      selectedIconName="target"
                       selected={this.state.selectedTab === 'home'}
                       onPress={()=>{
                           this.setState({
