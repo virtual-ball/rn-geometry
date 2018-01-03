@@ -1,2 +1,2 @@
-*.pbxproj Objective-C
-*.js Objective-C
+*.js linguist-language=Objective-C
+*.pbxproj linguist-language=Objective-C
