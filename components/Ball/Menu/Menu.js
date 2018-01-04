@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import { AsyncStorage, FlatList, Text, View, TouchableHighlight } from 'react-native';
+import { AsyncStorage, FlatList, Text, View, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 let style = {
-    bg: {backgroundColor: '#EEE', minHeight: '100%'}
+    bg: {
+        backgroundColor: 'transparent', 
+        height: '100%'
+    }
 };
 
-export default class Home extends Component {
+export default class Menu extends Component {
     constructor(props){
         super(props);
         this.state = {
             data: [
-                { key: 0, type: 'box' },
+                { key: 0, type: 'square' },
                 { key: 1, type: 'triangle' },
                 { key: 2, type: 'circle' },
                 { key: 3, type: 'star' },
@@ -27,7 +30,7 @@ export default class Home extends Component {
     }
 
     clickNavigateBall = (type) => {
-        this.props.onClickNavigateBall(type);
+        this.props.onClickNavigateBall(type)
     }
 
 
@@ -41,15 +44,15 @@ export default class Home extends Component {
     _renderItem = (data) => {
         return (
 
-                <TouchableHighlight
+                <TouchableWithoutFeedback
                     onPress={()=> {this.clickNavigateBall(data.item.type)}}
                     underlayColor="#EAEAEA">
                     <View>
                         <Text style={{lineHeight: 150, textAlign: 'center'}}>
-                            <Icon name={data.item.type}  style={{fontSize: 40}}/>
+                            <Icon name={data.item.type}  style={{fontSize: 40, color: '#FFF'}}/>
                         </Text>
                     </View>
-                </TouchableHighlight>
+                </TouchableWithoutFeedback>
         );
     }
 
