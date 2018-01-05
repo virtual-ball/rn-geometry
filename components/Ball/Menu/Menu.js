@@ -17,8 +17,9 @@ export default class Menu extends Component {
                 { key: 0, type: 'square' },
                 { key: 1, type: 'triangle' },
                 { key: 2, type: 'circle' },
-                { key: 3, type: 'star' },
-                { key: 4, type: 'heart' }
+                { key: 3, type: 'plus-circle' },
+                { key: 4, type: 'plus-square' },
+                { key: 5, type: 'minus-circle' }
             ]
         };
     }

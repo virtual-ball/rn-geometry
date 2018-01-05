@@ -64,6 +64,36 @@ export default class Ball extends Component {
           />
         }
 
+
+        { this.state.type === 'plus-circle' &&
+          <ARKit.Cone
+            id="object_4"
+            position={{ x: 0, y: -0.2, z: -0.2 }}
+            shape={{ topR: 0, bottomR: 0.05, height: 0.1 }}
+            material={{ diffuse }}
+          />
+        }
+
+
+        { this.state.type === 'plus-square' &&
+          <ARKit.Box
+            id="object_5"
+            position={{ x: 0, y: -0.2, z: -0.2 }}
+            shape={{ width: 0.1, height: 0.2, length: 0.1, chamfer: 0.01 }}
+            material={{ diffuse }}
+          />
+        }
+
+
+        { this.state.type === 'minus-circle' &&
+          <ARKit.Cylinder
+            id="object_6"
+            position={{ x: 0, y: -0.2, z: -0.2 }}
+            shape={{ radius: 0.05, height: 0.1 }}
+            material={{ diffuse }}
+          />
+        }
+
           <ARKit.Light
             position={{ x: 1, y: 3, z: 2 }}
             type={ARKit.LightType.Omni}
