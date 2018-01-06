@@ -35,8 +35,11 @@ export default class Ball extends Component {
    * @
    **/
   triggerMenuSelect = (type) => {
-    this.state.type = type;
     this.state.isMenuShow = false;
+    this.state.type = type;
+    this.state.rotate = 0; //reset
+    this.state.size = 1; //reset
+    this.state.diffuse = 'white'; //reset
     this.setState(this.state);
   }
 
