@@ -26,6 +26,20 @@ let style = {
         top: 80,
         left: 0
     },
+    minusBtn: {
+        width: 60,
+        height: 80,
+        position: 'absolute',
+        bottom: 0,
+        left: 0
+    },
+    plusBtn: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        bottom: 0,
+        left: 60
+    },
     colorBtn: {
         width: 80,
         height: 80,
@@ -42,7 +56,8 @@ export default class Color extends Component {
             diffuseIndex: 0,
             diffuse: 'white',
             rotateIndex: 0,
-            rotate: {x:0 ,y:0, z: 0}
+            rotate: 0,
+            size: 10
         };
     }
 
@@ -59,16 +74,30 @@ export default class Color extends Component {
 
     clickRotateBtn = () => {
         let list = [
+            0,
             Math.PI / 4,
             Math.PI / 2,
-            3 * Math.PI / 4,
-            Math.PI
+            3 * Math.PI / 4
         ];
         this.state.rotateIndex === 3 ? this.state.rotateIndex = 0: this.state.rotateIndex += 1
         this.state.rotate = list[this.state.rotateIndex];
         this.setState(this.state);
         this.props.onClickRotateBtn(this.state.rotate)
     }
+
+
+    clickMinusBtn = () => {
+        this.state.size === 1? (this.state.size = 1): (--this.state.size)
+        this.setState(this.state);
+        this.props.onClickSizeBtn(this.state.size/10)
+    }
+
+    clickPlusBtn = () => {
+        this.state.size === 20? (this.state.size = 20): (++this.state.size)
+        this.setState(this.state);
+        this.props.onClickSizeBtn(this.state.size/10)
+    }
+
 
 
     clickColorBtn = () => {
@@ -101,6 +130,35 @@ export default class Color extends Component {
                 <TouchableWithoutFeedback
                     onPress={this.clickRotateBtn}>
                     <View style={style.rotateBtn}>
+                    </View>
+                </TouchableWithoutFeedback>
+
+
+
+                <TouchableWithoutFeedback
+                    onPress={this.clickMinusBtn}>
+                    <View style={style.minusBtn}>
+                        <Icon name={'minus-circle'}  style={{
+                            fontSize: 40, 
+                            position: 'absolute',
+                            left: 20,
+                            bottom: 20,
+                            color: '#FFF'
+                        }}/>
+                    </View>
+                </TouchableWithoutFeedback>
+
+
+                <TouchableWithoutFeedback
+                    onPress={this.clickPlusBtn}>
+                    <View style={style.plusBtn}>
+                        <Icon name={'plus-circle'}  style={{
+                            fontSize: 40, 
+                            position: 'absolute',
+                            left: 20,
+                            bottom: 20,
+                            color: '#FFF'
+                        }}/>
                     </View>
                 </TouchableWithoutFeedback>
 

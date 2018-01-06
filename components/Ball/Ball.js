@@ -23,6 +23,7 @@ export default class Ball extends Component {
           isMenuShow: true,
           type: 'triangle',
           rotate: 0,
+          size: 1,
           diffuse: 'white'
       };
   }
@@ -35,6 +36,17 @@ export default class Ball extends Component {
    **/
   triggerMenuSelect = (type) => {
     this.state.type = type;
+    this.state.isMenuShow = false;
+    this.setState(this.state);
+  }
+
+
+  /*
+   * @
+   * @ 触发点击Menu关闭按钮后的逻辑
+   * @
+   **/
+  triggerMenuClose = () => {
     this.state.isMenuShow = false;
     this.setState(this.state);
   }
@@ -58,6 +70,17 @@ export default class Ball extends Component {
    **/
   triggerSwitchRotate = (rotate) => {
     this.state.rotate = rotate;
+    this.setState(this.state);
+  }
+
+
+  /*
+   * @
+   * @ 触发size按钮点击后的展示
+   * @
+   **/
+  triggerSwitchSize = (size) => {
+    this.state.size = size;
     this.setState(this.state);
   }
 
@@ -88,7 +111,7 @@ export default class Ball extends Component {
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ width: 0.1, height: 0.1, length: 0.1, chamfer: 0.01 }}
+            shape={{ width: 0.1 * this.state.size, height: 0.1 * this.state.size, length: 0.1 * this.state.size, chamfer: 0.01 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -102,7 +125,7 @@ export default class Ball extends Component {
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ radius: 0.05 }}
+            shape={{ radius: 0.05 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -116,7 +139,7 @@ export default class Ball extends Component {
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ width: 0.1, height: 0.1, length: 0.1 }}
+            shape={{ width: 0.1 * this.state.size, height: 0.1 * this.state.size, length: 0.1 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -131,7 +154,7 @@ export default class Ball extends Component {
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ topR: 0, bottomR: 0.05, height: 0.1 }}
+            shape={{ topR: 0, bottomR: 0.05 * this.state.size, height: 0.1 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -146,7 +169,7 @@ export default class Ball extends Component {
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ width: 0.1, height: 0.2, length: 0.1, chamfer: 0.01 }}
+            shape={{ width: 0.1 * this.state.size, height: 0.2 * this.state.size, length: 0.1 * this.state.size, chamfer: 0.01 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -161,7 +184,7 @@ export default class Ball extends Component {
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ radius: 0.05, height: 0.1 }}
+            shape={{ radius: 0.05 * this.state.size, height: 0.1 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -182,13 +205,16 @@ export default class Ball extends Component {
 
         { this.state.isMenuShow &&
           <Menu 
-          onClickNavigateBall={(type) => this.triggerMenuSelect(type)}/>
+           onClickNavigateBall={(type) => this.triggerMenuSelect(type)}
+           onClickClose={() => this.triggerMenuClose()}
+          />
         }
 
         { !this.state.isMenuShow &&
           <Dashboard
            onClickMenuBtn={() => this.triggerSwitchMenu()}
            onClickRotateBtn={(rotate) => this.triggerSwitchRotate(rotate)}
+           onClickSizeBtn={(size) => this.triggerSwitchSize(size)}
            onClickColor={(color) => this.triggerSwitchColor(color)}/>
         }
         </ARKit>

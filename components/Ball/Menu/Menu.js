@@ -12,6 +12,13 @@ let style = {
         flex: 1,
         backgroundColor: 'transparent', 
         height: '100%'
+    },
+    closeBtn: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        top: 0,
+        right: 0
     }
 };
 
@@ -41,6 +48,15 @@ export default class Menu extends Component {
     }
 
 
+
+    /*
+     * @
+     * @ close
+     * @
+     **/
+    close = () => {
+        this.props.onClickClose()
+    }
 
     /*
      * @
@@ -74,6 +90,20 @@ export default class Menu extends Component {
                 extraData={this.state}
                 renderItem={this._renderItem}
                 style={style.flatlist}/>
+
+                <TouchableWithoutFeedback
+                    onPress={this.close}>
+                    <View style={style.closeBtn}>
+                        <Icon name={'x'}  style={{
+                            fontSize: 20, 
+                            position: 'absolute',
+                            right: 20,
+                            top: 30,
+                            color: '#FFF'
+                        }}/>
+                    </View>
+                </TouchableWithoutFeedback>
+
             </BlurView>
         );
     }
