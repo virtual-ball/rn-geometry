@@ -96,7 +96,7 @@ export default class Ball extends Component {
         }
 
 
-        { this.state.type === 'plus-circle' &&
+        { this.state.type === 'x-circle' &&
           <ARKit.Cone
             id="object_4"
             position={{ x: 0, y: -0.2, z: -0.2 }}
@@ -116,7 +116,7 @@ export default class Ball extends Component {
         }
 
 
-        { this.state.type === 'minus-circle' &&
+        { this.state.type === 'plus-circle' &&
           <ARKit.Cylinder
             id="object_6"
             position={{ x: 0, y: -0.2, z: -0.2 }}
@@ -140,7 +140,8 @@ export default class Ball extends Component {
           />
 
         { this.state.isMenuShow &&
-          <Menu onClickNavigateBall={(type) => this.triggerMenuSelect(type)}/>
+          <Menu 
+          onClickNavigateBall={(type) => this.triggerMenuSelect(type)}/>
         }
 
         { !this.state.isMenuShow &&

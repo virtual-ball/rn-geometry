@@ -23,9 +23,9 @@ export default class Menu extends Component {
                 { key: 0, type: 'square' },
                 { key: 1, type: 'triangle' },
                 { key: 2, type: 'circle' },
-                { key: 3, type: 'plus-circle' },
+                { key: 3, type: 'x-circle' },
                 { key: 4, type: 'plus-square' },
-                { key: 5, type: 'minus-circle' }
+                { key: 5, type: 'plus-circle' }
             ]
         };
     }
@@ -67,7 +67,7 @@ export default class Menu extends Component {
         return (
             <BlurView
                 blurType="dark"
-                blurAmount={10}
+                blurAmount={20}
                 style={style.bg}
             >
                 <FlatList data={this.state.data}
