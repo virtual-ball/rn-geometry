@@ -22,9 +22,7 @@ export default class Ball extends Component {
       this.state = {
           isMenuShow: true,
           type: 'triangle',
-          x: 0,
-          y: 0,
-          z: 0,
+          rotate: 0,
           diffuse: 'white'
       };
   }
@@ -59,9 +57,7 @@ export default class Ball extends Component {
    * @
    **/
   triggerSwitchRotate = (rotate) => {
-    this.state.x = rotate.x;
-    this.state.y = rotate.y;
-    this.state.z = rotate.z;
+    this.state.rotate = rotate;
     this.setState(this.state);
   }
 
@@ -88,7 +84,7 @@ export default class Ball extends Component {
             id="object_1"
             eulerAngles={{ 
               x: 0,
-              y: 0.33 * (this.state.x + this.state.y + this.state.z),
+              y: this.state.rotate,
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
@@ -116,7 +112,7 @@ export default class Ball extends Component {
             id="object_3"
             eulerAngles={{ 
               x: 0,
-              y: 0.33 * (this.state.x + this.state.y + this.state.z),
+              y: this.state.rotate,
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
@@ -130,9 +126,9 @@ export default class Ball extends Component {
           <ARKit.Cone
             id="object_4"
             eulerAngles={{ 
-              x: 0,
+              x: 2 * this.state.rotate,
               y: 0,
-              z: 0.33 * (this.state.x + this.state.y + this.state.z)
+              z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ topR: 0, bottomR: 0.05, height: 0.1 }}
@@ -146,7 +142,7 @@ export default class Ball extends Component {
             id="object_5"
             eulerAngles={{ 
               x: 0,
-              y: 0.33 * (this.state.x + this.state.y + this.state.z),
+              y: this.state.rotate,
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
@@ -160,9 +156,9 @@ export default class Ball extends Component {
           <ARKit.Cylinder
             id="object_6"
             eulerAngles={{ 
-              x: 0.5 * this.state.x + 0.5 * this.state.y,
+              x: this.state.rotate,
               y: 0,
-              z: this.state.z
+              z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ radius: 0.05, height: 0.1 }}

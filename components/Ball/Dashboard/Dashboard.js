@@ -59,32 +59,12 @@ export default class Color extends Component {
 
     clickRotateBtn = () => {
         let list = [
-            { x: 0 ,y: 0, z: 0 },
-            { x: Math.PI/4 ,y: 0, z: 0 },
-            { x: Math.PI/2 ,y: 0, z: 0 },
-            { x: 3 * Math.PI/4 ,y: 0, z: 0 },
-            { x: Math.PI ,y: 0, z: 0 },
-            { x: 5 * Math.PI/4 ,y: 0, z: 0 },
-            { x: 3 * Math.PI/2 ,y: 0, z: 0 },
-            { x: 7 * Math.PI/4 ,y: 0, z: 0 },
-            { x: 2 * Math.PI ,y: 0, z: 0 },
-            { x: 2 * Math.PI ,y: Math.PI/4, z: 0 },
-            { x: 2 * Math.PI ,y: Math.PI/2, z: 0 },
-            { x: 2 * Math.PI ,y: 3 * Math.PI/4, z: 0 },
-            { x: 2 * Math.PI ,y: Math.PI, z: 0 },
-            { x: 2 * Math.PI ,y: 5 * Math.PI/4, z: 0 },
-            { x: 2 * Math.PI ,y: 3 * Math.PI/2, z: 0 },
-            { x: 2 * Math.PI ,y: 7 * Math.PI/4, z: 0 },
-            { x: 2 * Math.PI ,y: 2 * Math.PI, z: 0 },
-            { x: 2 * Math.PI ,y: 2 * Math.PI, z: Math.PI/4 },
-            { x: 2 * Math.PI ,y: 2 * Math.PI, z: Math.PI/2 },
-            { x: 2 * Math.PI ,y: 2 * Math.PI, z: 3 * Math.PI/4 },
-            { x: 2 * Math.PI ,y: 2 * Math.PI, z: Math.PI },
-            { x: 2 * Math.PI ,y: 2 * Math.PI, z: 5 * Math.PI/4 },
-            { x: 2 * Math.PI ,y: 2 * Math.PI, z: 3 * Math.PI/2 },
-            { x: 2 * Math.PI ,y: 2 * Math.PI, z: 7 * Math.PI/4 },
+            Math.PI / 4,
+            Math.PI / 2,
+            3 * Math.PI / 4,
+            Math.PI
         ];
-        this.state.rotateIndex === 23 ? this.state.rotateIndex = 0: this.state.rotateIndex += 1
+        this.state.rotateIndex === 3 ? this.state.rotateIndex = 0: this.state.rotateIndex += 1
         this.state.rotate = list[this.state.rotateIndex];
         this.setState(this.state);
         this.props.onClickRotateBtn(this.state.rotate)
