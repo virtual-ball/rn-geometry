@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Text, View, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
+var Dimensions = require('Dimensions');
+let h = Dimensions.get('window').height;
+
 let style = {
     bg: {
         flex: 1,
@@ -9,12 +12,20 @@ let style = {
         backgroundColor: 'transparent', 
         height: '100%'
     },
-    color: {
-        width: 40,
-        height: 40,
+    menuBtn: {
+        flex: 1,
+        width: '100%',
+        height: h - 80,
         position: 'absolute',
-        bottom: 20,
-        right: 20
+        bottom: 80,
+        left: 0
+    },
+    color: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        bottom: 0,
+        right: 0
     }
 };
 
@@ -33,7 +44,11 @@ export default class Color extends Component {
 
     }
 
-    clickColor = (type) => {
+    clickMenuBtn = () => {
+        this.props.onClickMenuBtn();
+    }
+
+    clickColor = () => {
         let list = ['white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple', 'gray'];
         this.state.diffuseIndex === 8 ? this.state.diffuseIndex = 0: this.state.diffuseIndex += 1
         this.state.diffuse = list[this.state.diffuseIndex];
@@ -46,14 +61,24 @@ export default class Color extends Component {
     render() {
         return (
             <View style={style.bg}>
-                <View style={style.color}>
                 <TouchableWithoutFeedback
-                    onPress={()=> {this.clickColor()}}
-                    
-                    underlayColor="#EAEAEA">
-                    <Icon name={'circle'}  style={{fontSize: 40, color: this.state.diffuse}}/>
+                    onPress={this.clickMenuBtn}>
+                    <View style={style.menuBtn}></View>
                 </TouchableWithoutFeedback>
-                </View>
+
+
+                <TouchableWithoutFeedback
+                    onPress={this.clickColor}>
+                    <View style={style.color}>
+                        <Icon name={'circle'}  style={{
+                            fontSize: 40, 
+                            position: 'absolute',
+                            right: 20,
+                            bottom: 20,
+                            color: this.state.diffuse
+                        }}/>
+                    </View>
+                </TouchableWithoutFeedback>
             </View>
         );
     }

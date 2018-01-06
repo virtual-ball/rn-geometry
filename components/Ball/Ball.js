@@ -26,12 +26,35 @@ export default class Ball extends Component {
       };
   }
 
+
+  /*
+   * @
+   * @ 触发Menu选择后的逻辑
+   * @
+   **/
   triggerMenuSelect = (type) => {
     this.state.type = type;
     this.state.isMenuShow = false;
     this.setState(this.state);
   }
 
+
+  /*
+   * @
+   * @ 触发Menu按钮点击后的展示
+   * @
+   **/
+  triggerSwitchMenu = () => {
+    this.state.isMenuShow = true;
+    this.setState(this.state);
+  }
+
+
+  /*
+   * @
+   * @ 触发Color点击后的颜色改变
+   * @
+   **/
   triggerSwitchColor = (color) => {
     this.state.diffuse = color;
     this.setState(this.state);
@@ -121,7 +144,9 @@ export default class Ball extends Component {
         }
 
         { !this.state.isMenuShow &&
-          <Dashboard onClickColor={(color) => this.triggerSwitchColor(color)}/>
+          <Dashboard
+           onClickMenuBtn={() => this.triggerSwitchMenu()}
+           onClickColor={(color) => this.triggerSwitchColor(color)}/>
         }
         </ARKit>
       </View>

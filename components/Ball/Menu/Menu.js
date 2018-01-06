@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { AsyncStorage, FlatList, Text, View, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import { BlurView } from 'react-native-blur';
 
 let style = {
     bg: {
+        flex: 1,
+        height: '100%'
+    },
+    flatlist: {
         flex: 1,
         backgroundColor: 'transparent', 
         height: '100%'
@@ -60,10 +65,16 @@ export default class Menu extends Component {
 
     render() {
         return (
+            <BlurView
+                blurType="dark"
+                blurAmount={10}
+                style={style.bg}
+            >
                 <FlatList data={this.state.data}
                 extraData={this.state}
                 renderItem={this._renderItem}
-                style={style.bg}/>
+                style={style.flatlist}/>
+            </BlurView>
         );
     }
 }
