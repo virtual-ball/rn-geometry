@@ -22,6 +22,9 @@ export default class Ball extends Component {
       this.state = {
           isMenuShow: true,
           type: 'triangle',
+          x: 0,
+          y: 0,
+          z: 0,
           diffuse: 'white'
       };
   }
@@ -52,6 +55,18 @@ export default class Ball extends Component {
 
   /*
    * @
+   * @ 触发Rotate按钮点击后的展示
+   * @
+   **/
+  triggerSwitchRotate = (rotate) => {
+    this.state.x = rotate.x;
+    this.state.y = rotate.y;
+    this.state.z = rotate.z;
+    this.setState(this.state);
+  }
+
+  /*
+   * @
    * @ 触发Color点击后的颜色改变
    * @
    **/
@@ -71,6 +86,11 @@ export default class Ball extends Component {
         { this.state.type === 'square' &&
           <ARKit.Box
             id="object_1"
+            eulerAngles={{ 
+              x: 0,
+              y: 0.33 * (this.state.x + this.state.y + this.state.z),
+              z: 0
+            }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ width: 0.1, height: 0.1, length: 0.1, chamfer: 0.01 }}
             material={{ diffuse: this.state.diffuse }}
@@ -80,6 +100,11 @@ export default class Ball extends Component {
         { this.state.type === 'circle' &&
           <ARKit.Sphere
             id="object_2"
+            eulerAngles={{ 
+              x: 0,
+              y: 0,
+              z: 0
+            }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ radius: 0.05 }}
             material={{ diffuse: this.state.diffuse }}
@@ -89,6 +114,11 @@ export default class Ball extends Component {
         { this.state.type === 'triangle' &&
           <ARKit.Pyramid
             id="object_3"
+            eulerAngles={{ 
+              x: 0,
+              y: 0.33 * (this.state.x + this.state.y + this.state.z),
+              z: 0
+            }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ width: 0.1, height: 0.1, length: 0.1 }}
             material={{ diffuse: this.state.diffuse }}
@@ -99,6 +129,11 @@ export default class Ball extends Component {
         { this.state.type === 'x-circle' &&
           <ARKit.Cone
             id="object_4"
+            eulerAngles={{ 
+              x: 0,
+              y: 0,
+              z: 0.33 * (this.state.x + this.state.y + this.state.z)
+            }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ topR: 0, bottomR: 0.05, height: 0.1 }}
             material={{ diffuse: this.state.diffuse }}
@@ -109,6 +144,11 @@ export default class Ball extends Component {
         { this.state.type === 'plus-square' &&
           <ARKit.Box
             id="object_5"
+            eulerAngles={{ 
+              x: 0,
+              y: 0.33 * (this.state.x + this.state.y + this.state.z),
+              z: 0
+            }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ width: 0.1, height: 0.2, length: 0.1, chamfer: 0.01 }}
             material={{ diffuse: this.state.diffuse }}
@@ -119,6 +159,11 @@ export default class Ball extends Component {
         { this.state.type === 'plus-circle' &&
           <ARKit.Cylinder
             id="object_6"
+            eulerAngles={{ 
+              x: 0.5 * this.state.x + 0.5 * this.state.y,
+              y: 0,
+              z: this.state.z
+            }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ radius: 0.05, height: 0.1 }}
             material={{ diffuse: this.state.diffuse }}
@@ -147,6 +192,7 @@ export default class Ball extends Component {
         { !this.state.isMenuShow &&
           <Dashboard
            onClickMenuBtn={() => this.triggerSwitchMenu()}
+           onClickRotateBtn={(rotate) => this.triggerSwitchRotate(rotate)}
            onClickColor={(color) => this.triggerSwitchColor(color)}/>
         }
         </ARKit>
