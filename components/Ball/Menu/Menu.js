@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Feather';
 
 let style = {
     bg: {
+        flex: 1,
         backgroundColor: 'transparent', 
         height: '100%'
     }

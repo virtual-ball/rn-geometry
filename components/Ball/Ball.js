@@ -3,13 +3,14 @@
 import { ARKit, withProjectedPosition } from 'react-native-arkit';
 import { AppRegistry, Dimensions, View } from 'react-native';
 import React, { Component } from 'react';
+import Dashboard from './Dashboard/Dashboard.js';
 import Menu from './Menu/Menu.js';
 
-const diffuse = 'white';
-
 let style = {
-    menu: {
-        opacity: 0.2
+    canvas: {
+        flex: 1,
+        position: 'relative',
+        height: '100%'
     }
 };
 
@@ -19,12 +20,20 @@ export default class Ball extends Component {
   constructor(props){
       super(props);
       this.state = {
-          type: 'square'
+          isMenuShow: true,
+          type: 'triangle',
+          diffuse: 'white'
       };
   }
 
   triggerMenuSelect = (type) => {
     this.state.type = type;
+    this.state.isMenuShow = false;
+    this.setState(this.state);
+  }
+
+  triggerSwitchColor = (color) => {
+    this.state.diffuse = color;
     this.setState(this.state);
   }
 
@@ -32,8 +41,7 @@ export default class Ball extends Component {
     return (
       <View style={{ flex: 1 }}>
         <ARKit
-          style={{ flex: 1 }}
-          debug
+          style={style.canvas}
           lightEstimationEnabled
         >
 
@@ -42,7 +50,7 @@ export default class Ball extends Component {
             id="object_1"
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ width: 0.1, height: 0.1, length: 0.1, chamfer: 0.01 }}
-            material={{ diffuse }}
+            material={{ diffuse: this.state.diffuse }}
           />
         }
 
@@ -51,7 +59,7 @@ export default class Ball extends Component {
             id="object_2"
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ radius: 0.05 }}
-            material={{ diffuse }}
+            material={{ diffuse: this.state.diffuse }}
           />
         }
 
@@ -60,7 +68,7 @@ export default class Ball extends Component {
             id="object_3"
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ width: 0.1, height: 0.1, length: 0.1 }}
-            material={{ diffuse }}
+            material={{ diffuse: this.state.diffuse }}
           />
         }
 
@@ -70,7 +78,7 @@ export default class Ball extends Component {
             id="object_4"
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ topR: 0, bottomR: 0.05, height: 0.1 }}
-            material={{ diffuse }}
+            material={{ diffuse: this.state.diffuse }}
           />
         }
 
@@ -80,7 +88,7 @@ export default class Ball extends Component {
             id="object_5"
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ width: 0.1, height: 0.2, length: 0.1, chamfer: 0.01 }}
-            material={{ diffuse }}
+            material={{ diffuse: this.state.diffuse }}
           />
         }
 
@@ -90,7 +98,7 @@ export default class Ball extends Component {
             id="object_6"
             position={{ x: 0, y: -0.2, z: -0.2 }}
             shape={{ radius: 0.05, height: 0.1 }}
-            material={{ diffuse }}
+            material={{ diffuse: this.state.diffuse }}
           />
         }
 
@@ -108,7 +116,13 @@ export default class Ball extends Component {
             color="purple"
           />
 
-          <Menu style={style.menu} onClickNavigateBall={(type) => this.triggerMenuSelect(type)}/>
+        { this.state.isMenuShow &&
+          <Menu onClickNavigateBall={(type) => this.triggerMenuSelect(type)}/>
+        }
+
+        { !this.state.isMenuShow &&
+          <Dashboard onClickColor={(color) => this.triggerSwitchColor(color)}/>
+        }
         </ARKit>
       </View>
     );
