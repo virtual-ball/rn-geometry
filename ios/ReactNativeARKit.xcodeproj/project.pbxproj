@@ -1488,7 +1488,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "virtual-ball";
+				PRODUCT_BUNDLE_IDENTIFIER = geometry;
 				PRODUCT_NAME = ReactNativeARKit;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1516,7 +1516,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "virtual-ball";
+				PRODUCT_BUNDLE_IDENTIFIER = geometry;
 				PRODUCT_NAME = ReactNativeARKit;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
