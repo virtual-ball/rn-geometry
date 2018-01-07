@@ -1,12 +1,17 @@
 // index.ios.js
 
 import { ARKit, withProjectedPosition } from 'react-native-arkit';
-import { AppRegistry, Dimensions, View } from 'react-native';
+import { AppRegistry, Dimensions, View, Alert } from 'react-native';
 import React, { Component } from 'react';
+import Camera from 'react-native-camera';
+
 import Dashboard from './Dashboard/Dashboard.js';
 import Menu from './Menu/Menu.js';
 
 let style = {
+    bg: {
+      flex: 1, backGroundColor: '#000', height: '100%'
+    },
     canvas: {
         flex: 1,
         position: 'relative',
@@ -20,6 +25,7 @@ export default class Ball extends Component {
   constructor(props){
       super(props);
       this.state = {
+          isCameraAuth: false,
           isMenuShow: true,
           type: 'triangle',
           rotate: 0,
@@ -28,6 +34,27 @@ export default class Ball extends Component {
       };
   }
 
+  componentDidMount = () => {
+    this.checkCameraStatus();
+  }
+
+  /*
+   * @
+   * @ 触发校验相机访问权限
+   * @
+   **/
+  checkCameraStatus = () => {
+    Camera.checkVideoAuthorizationStatus()
+          .then(access => {
+                if(!access) {
+                    this.state.isCameraAuth = false;
+                    Alert.alert('需要启用相机权限', '请在iPhone的“设置-隐私”选项中,允许访问您的相机权限')
+                }
+                else {
+                    this.state.isCameraAuth = true;
+                }
+            });
+  }
 
   /*
    * @
@@ -35,6 +62,10 @@ export default class Ball extends Component {
    * @
    **/
   triggerMenuSelect = (type) => {
+    if (!this.state.isCameraAuth) {
+      this.checkCameraStatus(); return;
+    }
+
     this.state.isMenuShow = false;
     this.state.type = type;
     this.state.rotate = 0; //reset
@@ -50,6 +81,9 @@ export default class Ball extends Component {
    * @
    **/
   triggerMenuClose = () => {
+    if (!this.state.isCameraAuth) {
+      this.checkCameraStatus(); return;
+    }
     this.state.isMenuShow = false;
     this.setState(this.state);
   }
@@ -99,7 +133,7 @@ export default class Ball extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={ style.bg }>
         <ARKit
           style={style.canvas}
           lightEstimationEnabled
@@ -206,14 +240,14 @@ export default class Ball extends Component {
             color="purple"
           />
 
-        { this.state.isMenuShow &&
+        { this.state.isMenuShow && 
           <Menu 
            onClickNavigateBall={(type) => this.triggerMenuSelect(type)}
            onClickClose={() => this.triggerMenuClose()}
           />
         }
 
-        { !this.state.isMenuShow &&
+        { !this.state.isMenuShow && 
           <Dashboard
            onClickMenuBtn={() => this.triggerSwitchMenu()}
            onClickRotateBtn={(rotate) => this.triggerSwitchRotate(rotate)}
