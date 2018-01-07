@@ -10,7 +10,7 @@ import Menu from './Menu/Menu.js';
 
 let style = {
     bg: {
-      flex: 1, backGroundColor: '#000', height: '100%'
+      flex: 1, backgroundColor: '#000', height: '100%'
     },
     canvas: {
         flex: 1,
@@ -86,6 +86,16 @@ export default class Ball extends Component {
     }
     this.state.isMenuShow = false;
     this.setState(this.state);
+  }
+
+
+  /*
+   * @
+   * @ 触发reload
+   * @
+   **/
+  triggerReload = () => {
+    //
   }
 
 
@@ -250,6 +260,7 @@ export default class Ball extends Component {
         { !this.state.isMenuShow && 
           <Dashboard
            onClickMenuBtn={() => this.triggerSwitchMenu()}
+           onClickReloadBtn={() => this.triggerReload()}
            onClickRotateBtn={(rotate) => this.triggerSwitchRotate(rotate)}
            onClickSizeBtn={(size) => this.triggerSwitchSize(size)}
            onClickColor={(color) => this.triggerSwitchColor(color)}/>

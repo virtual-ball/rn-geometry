@@ -19,6 +19,13 @@ let style = {
         top: 0,
         left: 0
     },
+    reloadBtn: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        top: 0,
+        right: 0
+    },
     rotateBtn: {
         width: '100%',
         height: h - 160,
@@ -92,6 +99,10 @@ export default class Color extends Component {
         this.props.onClickSizeBtn(this.state.size/10)
     }
 
+    clickReloadBtn = () => {
+        this.props.onClickReloadBtn()
+    }
+
     clickPlusBtn = () => {
         this.state.size === 20? (this.state.size = 20): (++this.state.size)
         this.setState(this.state);
@@ -126,6 +137,22 @@ export default class Color extends Component {
                     </View>
                 </TouchableWithoutFeedback>
 
+                {/** //无用
+                <TouchableWithoutFeedback
+                    onPress={this.clickReloadBtn}>
+                    <View style={style.reloadBtn}>
+                        <Icon name={'refresh-cw'}  style={{
+                            fontSize: 20, 
+                            position: 'absolute',
+                            right: 20,
+                            top: 30,
+                            color: '#FFF'
+                        }}/>
+                    </View>
+                </TouchableWithoutFeedback>
+                 **/
+                }
+
 
                 <TouchableWithoutFeedback
                     onPress={this.clickRotateBtn}>
@@ -147,6 +174,8 @@ export default class Color extends Component {
                         }}/>
                     </View>
                 </TouchableWithoutFeedback>
+
+
 
 
                 <TouchableWithoutFeedback
