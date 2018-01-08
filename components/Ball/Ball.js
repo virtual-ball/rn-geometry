@@ -101,6 +101,15 @@ export default class Ball extends Component {
 
   /*
    * @
+   * @ 触发反馈
+   * @
+   **/
+  triggerFeedbackSelect = () => {
+    this.props.onTriggerFeedbackSelect()
+  }
+
+  /*
+   * @
    * @ 触发Menu按钮点击后的展示
    * @
    **/
@@ -253,6 +262,7 @@ export default class Ball extends Component {
         { this.state.isMenuShow && 
           <Menu 
            onClickNavigateBall={(type) => this.triggerMenuSelect(type)}
+           onClickNavigateFeedback={() => this.triggerFeedbackSelect()}
            onClickClose={() => this.triggerMenuClose()}
           />
         }

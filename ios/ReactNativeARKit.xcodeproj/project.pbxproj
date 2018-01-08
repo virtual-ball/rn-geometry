@@ -1525,7 +1525,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = geometry;
+				PRODUCT_BUNDLE_IDENTIFIER = geometry.meloalright;
 				PRODUCT_NAME = ReactNativeARKit;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1554,7 +1554,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = geometry;
+				PRODUCT_BUNDLE_IDENTIFIER = geometry.meloalright;
 				PRODUCT_NAME = ReactNativeARKit;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, NavigatorIOS, StatusBar } from 'react-native';
+import { View, NavigatorIOS } from 'react-native';
 import Ball from './Ball/Ball.js'
+import Feedback from './Feedback/Feedback.js'
 
 let style = {};
 
@@ -11,9 +12,25 @@ export class BallComponent extends Component {
         this.state = {};
     }
 
+    /*
+     * @
+     * @ 跳转到feedback页
+     * @
+     **/
+    navigateFeedback = () => {
+      const {dispatch} = this.props;
+      this.props.navigator.push({
+          component: Feedback,
+          passProps: {},
+          title: '',
+          backButtonTitle: '',
+          leftButtonTitle: ''
+      });
+    }
+
     render() {
         return (
-            <Ball {...this.props} onReload={this.reload}/>
+            <Ball {...this.props} onReload={this.reload} onTriggerFeedbackSelect={this.navigateFeedback}/>
         );
     }
 }

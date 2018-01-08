@@ -40,11 +40,14 @@ export default class Menu extends Component {
 
 
     componentDidMount = async () => {
-
     }
 
     clickNavigateBall = (type) => {
         this.props.onClickNavigateBall(type)
+    }
+
+    clickNavigateFeedback = () => {
+        this.props.onClickNavigateFeedback()
     }
 
 
@@ -79,6 +82,26 @@ export default class Menu extends Component {
         );
     }
 
+    /*
+     * @
+     * @ 尾部component
+     * @ _footer component
+     * @
+     **/
+    _ListFooterComponent = () => {
+        return (
+                <TouchableWithoutFeedback
+                    onPress={()=> {this.clickNavigateFeedback()}}
+                    underlayColor="#EAEAEA">
+                    <View>
+                        <Text style={{lineHeight: 150, textAlign: 'center', fontSize: 30, color: '#FFF'}}>
+                            <Icon name={'calendar'}  style={{fontSize: 30, color: '#FFF'}}/>  联系我们
+                        </Text>
+                    </View>
+                </TouchableWithoutFeedback>
+        )
+    }
+
     render() {
         return (
             <BlurView
@@ -89,6 +112,7 @@ export default class Menu extends Component {
                 <FlatList data={this.state.data}
                 extraData={this.state}
                 renderItem={this._renderItem}
+                ListFooterComponent={this._ListFooterComponent}
                 style={style.flatlist}/>
 
                 <TouchableWithoutFeedback
