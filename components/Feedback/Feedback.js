@@ -6,13 +6,14 @@ import Icon from 'react-native-vector-icons/Feather';
 
 let style = {
     bg: {
-        backgroundColor: '#000',
+        backgroundColor: '#DDD',
         flex: 1,
         height: '100%'
     },
     bar: {
-        backgroundColor: '#020202',
+        backgroundColor: '#24292e',
         position: 'absolute',
+        overflow: 'hidden',
         height: 56,
         left: 0,
         width: '100%',
@@ -25,7 +26,7 @@ let style = {
         top: 14,
         left: 0,
         width: 40,
-        color: '#FFF',
+        color: '#EEE',
         fontSize: 26,
         height: 45
     },
@@ -37,12 +38,12 @@ let style = {
         right: 0,
         paddingRight: 16,
         paddingBottom: 4,
-        color: '#FFF',
+        color: '#EEE',
         fontSize: 14,
         height: 20
     },
     input: {
-        backgroundColor: '#FFF',
+        backgroundColor: '#DDD',
         position: 'absolute',
         top: 60,
         width: '100%',
@@ -53,19 +54,19 @@ let style = {
         paddingTop: 20,
         fontSize: 14,
         lineHeight: 26,
-        color: '#000'
+        color: '#24292e'
     },
     line: {
         position: 'absolute',
         textAlign: 'center',
-        color: '#EFEFEF',
+        color: '#24292e',
         bottom: 12,
         fontSize: 12,
         left: 0,
         width: '100%'
     },
     mail: {
-        color: '#FFF'
+        color: '#187fe0'
     }
 };
 
