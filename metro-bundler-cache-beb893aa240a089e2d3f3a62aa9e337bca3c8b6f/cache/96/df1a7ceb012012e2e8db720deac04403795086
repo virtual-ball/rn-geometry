@@ -1,0 +1,289 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Feedback/Feedback.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _Feather = require('react-native-vector-icons/Feather');
+
+var _Feather2 = _interopRequireDefault(_Feather);
+
+var _GeoToast = require('../GeoToast/GeoToast.js');
+
+var _GeoToast2 = _interopRequireDefault(_GeoToast);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    FeedBack: {
+        displayName: 'FeedBack'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Feedback/Feedback.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var style = {
+    bg: {
+        backgroundColor: '#DDD',
+        flex: 1,
+        height: '100%'
+    },
+    bar: {
+        backgroundColor: '#24292e',
+        position: 'absolute',
+        overflow: 'hidden',
+        height: 76,
+        left: 0,
+        width: '100%',
+        top: 0
+    },
+    back: {
+        position: 'absolute',
+        textAlign: 'left',
+        paddingTop: 30,
+        paddingBottom: 32,
+        width: 80,
+        flex: 1,
+        left: 0,
+        paddingLeft: 16
+    },
+    submit: {
+        position: 'absolute',
+        textAlign: 'right',
+        paddingTop: 30,
+        paddingBottom: 32,
+        flex: 1,
+        right: 0,
+        paddingRight: 16
+    },
+    text: {
+        color: '#EEE',
+        fontSize: 14
+    },
+    input: {
+        backgroundColor: '#E1E1E1',
+        position: 'absolute',
+        textAlign: 'justify',
+        top: 60,
+        width: '100%',
+        minHeight: 200,
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingBottom: 20,
+        paddingTop: 20,
+        fontSize: 14,
+        lineHeight: 26,
+        color: '#24292e'
+    },
+    line: {
+        position: 'absolute',
+        textAlign: 'center',
+        color: '#24292e',
+        bottom: 12,
+        fontSize: 12,
+        left: 0,
+        width: '100%'
+    },
+    mail: {
+        color: '#187fe0'
+    }
+};
+
+var FeedBack = _wrapComponent('FeedBack')(function (_Component) {
+    _inherits(FeedBack, _Component);
+
+    function FeedBack(props) {
+        _classCallCheck(this, FeedBack);
+
+        var _this = _possibleConstructorReturn(this, (FeedBack.__proto__ || Object.getPrototypeOf(FeedBack)).call(this, props));
+
+        _this.submit = function () {
+            if (_this.state.text.length < 2) {
+                _this.refs.toast.show('写多一点哦', 500);
+                return;
+            }
+            _this.refs.toast.show('提交中', 500);
+            setTimeout(function () {
+                _this.refs.toast.show('提交成功', 500);
+                _this.props.navigator.pop();
+            }, 1000);
+        };
+
+        _this.mail = function () {
+            _reactNative.Alert.alert('是否允许打开外部邮箱?', '', [{ text: '取消', onPress: function onPress() {
+                    console.log('cancel');
+                }, style: 'ok' }, { text: '确认', onPress: function onPress() {
+                    var link = 'mailto:meloalright@gmail.com?subject=to:小几何(来自小几何iOS客户端0.0.1)';
+                    _reactNative.Linking.canOpenURL(link).then(function (supported) {
+
+                        if (!supported) {
+                            _this.refs.toast.show('无法打开邮箱', 500);
+                        } else {
+                            return _reactNative.Linking.openURL(link);
+                        }
+                    }).catch(function (err) {
+                        return _this.refs.toast.show('无法打开邮件', 500);
+                    });
+                }, style: 'cancel' }], { cancelable: true });
+        };
+
+        _this.state = { text: '', back: '←   ' };
+        return _this;
+    }
+
+    _createClass(FeedBack, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            _reactNative.StatusBar.setBarStyle('light-content', true);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            _reactNative.StatusBar.setBarStyle('default', true);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: style.bg, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 139
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: style.bar, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 140
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.TouchableWithoutFeedback,
+                        { onPress: this.props.navigator.pop, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 141
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: style.back, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 141
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                { style: style.text, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 141
+                                    }
+                                },
+                                this.state.back
+                            )
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.TouchableWithoutFeedback,
+                        { onPress: this.submit, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 142
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: style.submit, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 142
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                { style: style.text, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 142
+                                    }
+                                },
+                                '\u63D0\u4EA4'
+                            )
+                        )
+                    )
+                ),
+                _react3.default.createElement(_reactNative.TextInput, {
+                    style: style.input,
+                    multiline: true,
+                    selectionColor: '#240cc4',
+                    numberOfLines: 6,
+                    placeholder: '在这里写下你对我们的意见或建议哦我们也会为此努力做得更好',
+                    maxLength: 120,
+                    onChangeText: function onChangeText(text) {
+                        return _this2.setState({ text: text });
+                    },
+                    value: this.state.text,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 144
+                    }
+                }),
+                _react3.default.createElement(
+                    _reactNative.Text,
+                    { style: style.line, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 154
+                        }
+                    },
+                    '\u6211\u4EEC\u7684\u8054\u7CFB\u90AE\u7BB1: ',
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        { onPress: this.mail, style: style.mail, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 154
+                            }
+                        },
+                        'meloalright@gmail.com'
+                    )
+                ),
+                _react3.default.createElement(_GeoToast2.default, { position: 'top', positionValue: 20, ref: 'toast', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 155
+                    }
+                })
+            );
+        }
+    }]);
+
+    return FeedBack;
+}(_react2.Component));
+
+exports.default = FeedBack;

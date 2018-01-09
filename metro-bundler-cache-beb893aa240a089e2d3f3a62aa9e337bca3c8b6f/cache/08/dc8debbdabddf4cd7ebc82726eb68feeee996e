@@ -1,0 +1,134 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.BallComponent = undefined;
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Navigator.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _Ball = require('./Ball/Ball.js');
+
+var _Ball2 = _interopRequireDefault(_Ball);
+
+var _Feedback = require('./Feedback/Feedback.js');
+
+var _Feedback2 = _interopRequireDefault(_Feedback);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    BallComponent: {
+        displayName: 'BallComponent'
+    },
+    Navigator: {
+        displayName: 'Navigator'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Navigator.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var style = {};
+
+var BallComponent = exports.BallComponent = _wrapComponent('BallComponent')(function (_Component) {
+    _inherits(BallComponent, _Component);
+
+    function BallComponent(props) {
+        _classCallCheck(this, BallComponent);
+
+        var _this = _possibleConstructorReturn(this, (BallComponent.__proto__ || Object.getPrototypeOf(BallComponent)).call(this, props));
+
+        _this.navigateFeedback = function () {
+            var dispatch = _this.props.dispatch;
+
+            _this.props.navigator.push({
+                component: _Feedback2.default,
+                passProps: {},
+                title: '',
+                backButtonTitle: '',
+                leftButtonTitle: ''
+            });
+        };
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(BallComponent, [{
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(_Ball2.default, _extends({}, this.props, { onReload: this.reload, onTriggerFeedbackSelect: this.navigateFeedback, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 33
+                }
+            }));
+        }
+    }]);
+
+    return BallComponent;
+}(_react2.Component));
+
+var Navigator = _wrapComponent('Navigator')(function (_Component2) {
+    _inherits(Navigator, _Component2);
+
+    function Navigator(props) {
+        _classCallCheck(this, Navigator);
+
+        var _this2 = _possibleConstructorReturn(this, (Navigator.__proto__ || Object.getPrototypeOf(Navigator)).call(this, props));
+
+        _this2.state = {};
+        return _this2;
+    }
+
+    _createClass(Navigator, [{
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(_reactNative.NavigatorIOS, {
+                initialRoute: {
+                    component: BallComponent,
+                    title: 'geometry'
+                },
+                interactivePopGestureEnabled: true,
+                navigationBarHidden: true,
+                style: { flex: 1 },
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 48
+                }
+            });
+        }
+    }]);
+
+    return Navigator;
+}(_react2.Component));
+
+exports.default = Navigator;

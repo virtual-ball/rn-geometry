@@ -84,9 +84,13 @@ export default class Color extends Component {
             0,
             Math.PI / 4,
             Math.PI / 2,
-            3 * Math.PI / 4
+            3 * Math.PI / 4,
+            Math.PI,
+            5 * Math.PI / 4,
+            3 * Math.PI / 2,
+            7 * Math.PI / 4
         ];
-        this.state.rotateIndex === 3 ? this.state.rotateIndex = 0: this.state.rotateIndex += 1
+        this.state.rotateIndex === 7 ? this.state.rotateIndex = 0: this.state.rotateIndex += 1
         this.state.rotate = list[this.state.rotateIndex];
         this.setState(this.state);
         this.props.onClickRotateBtn(this.state.rotate)

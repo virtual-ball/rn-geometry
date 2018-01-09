@@ -1,0 +1,20 @@
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _propTypes3 = require('./lib/propTypes');
+
+var _createArComponent = require('./lib/createArComponent');
+
+var _createArComponent2 = _interopRequireDefault(_createArComponent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ARSphere = (0, _createArComponent2.default)('addSphere', {
+  shape: _propTypes2.default.shape({
+    radius: _propTypes2.default.number
+  }),
+  material: _propTypes3.material
+});
+
+module.exports = ARSphere;

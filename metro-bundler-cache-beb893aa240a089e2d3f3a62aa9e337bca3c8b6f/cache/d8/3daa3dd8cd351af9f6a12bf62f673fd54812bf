@@ -1,0 +1,69 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[typeof Symbol === 'function' ? Symbol.iterator : '@@iterator'](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if ((typeof Symbol === 'function' ? Symbol.iterator : '@@iterator') in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+exports.default = function (idfv) {
+  random++;
+  var time = toSex(Math.floor(Date.now() / 1000));
+  var device = idfv ? toSex(idfv.split('-')[4], 16) : '';
+  return '' + toDigits(time, 6) + (device && toDigits(device, 10)) + toDigits(toSex(random), 4);
+};
+
+var digits = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+function toSex(num, base) {
+  if (base) {
+    num = parseInt(num, base);
+  }
+
+  var _num$toString$split = num.toString().split('.'),
+      _num$toString$split2 = _slicedToArray(_num$toString$split, 2),
+      integer = _num$toString$split2[0],
+      decimal = _num$toString$split2[1];
+
+  integer = parseInt(integer, 10);
+  var sex = [];
+  do {
+    sex.push(digits[integer % 60]);
+    integer = Math.floor(integer / 60);
+  } while (integer > 0);
+
+  var result = sex.reverse().join('');
+
+  if (decimal) {
+    decimal = parseFloat('.' + decimal);
+    var rem = [];
+    var precision = 4;
+    do {
+      decimal *= 60;
+      var x = Math.floor(decimal);
+      rem.push(digits[x]);
+      decimal -= x;
+      precision--;
+    } while (precision);
+
+    result += '.' + rem.join('');
+  }
+
+  return result;
+}
+
+function toDigits(str, n) {
+  if (str.length === n) {
+    return str;
+  }
+
+  if (str.length > n) {
+    return str.substr(0, n);
+  }
+
+  do {
+    str = '0' + str;
+  } while (str.length < n);
+
+  return str;
+}
+
+var random = Math.floor(Math.random() * 60 * 60 * 60 * 60);

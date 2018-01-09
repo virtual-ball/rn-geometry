@@ -1,0 +1,240 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _filter = require('lodash/filter');
+
+var _filter2 = _interopRequireDefault(_filter);
+
+var _fastDeepEqual = require('fast-deep-equal');
+
+var _fastDeepEqual2 = _interopRequireDefault(_fastDeepEqual);
+
+var _isEmpty = require('lodash/isEmpty');
+
+var _isEmpty2 = _interopRequireDefault(_isEmpty);
+
+var _keys = require('lodash/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _pick = require('lodash/pick');
+
+var _pick2 = _interopRequireDefault(_pick);
+
+var _some = require('lodash/some');
+
+var _some2 = _interopRequireDefault(_some);
+
+var _reactNative = require('react-native');
+
+var _propTypes3 = require('./propTypes');
+
+var _parseColor = require('./parseColor');
+
+var _generateId = require('./generateId');
+
+var _generateId2 = _interopRequireDefault(_generateId);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  _component: {
+    isInFunction: true
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/node_modules/react-native-arkit/components/lib/createArComponent.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var ARGeosManager = _reactNative.NativeModules.ARGeosManager;
+
+
+var PROP_TYPES_IMMUTABLE = {
+  id: _propTypes2.default.string,
+  frame: _propTypes2.default.string
+};
+var MOUNT_UNMOUNT_ANIMATION_PROPS = {
+  propsOnMount: _propTypes2.default.any,
+  propsOnUnMount: _propTypes2.default.any
+};
+var PROP_TYPES_NODE = {
+  position: _propTypes3.position,
+  transition: _propTypes3.transition,
+  orientation: _propTypes3.orientation,
+  eulerAngles: _propTypes3.eulerAngles,
+  rotation: _propTypes3.rotation,
+  scale: _propTypes3.scale,
+  categoryBitMask: _propTypes3.categoryBitMask,
+  castsShadow: _propTypes3.castsShadow,
+  renderingOrder: _propTypes3.renderingOrder
+};
+
+var NODE_PROPS = (0, _keys2.default)(PROP_TYPES_NODE);
+var IMMUTABLE_PROPS = (0, _keys2.default)(PROP_TYPES_IMMUTABLE);
+
+var nodeProps = function nodeProps(id, props) {
+  return _extends({
+    id: id
+  }, (0, _pick2.default)(props, NODE_PROPS));
+};
+
+exports.default = function (mountConfig) {
+  var propTypes = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  var allPropTypes = _extends({}, MOUNT_UNMOUNT_ANIMATION_PROPS, PROP_TYPES_IMMUTABLE, PROP_TYPES_NODE, propTypes);
+  var nonNodePropKeys = (0, _keys2.default)(propTypes);
+
+  var getNonNodeProps = function getNonNodeProps(props) {
+    return _extends({}, (0, _pick2.default)(props, nonNodePropKeys), props.color ? { color: (0, _parseColor.processColor)(props.color) } : {}, props.shadowColor ? { shadowColor: (0, _parseColor.processColor)(props.shadowColor) } : {}, props.material ? { material: (0, _parseColor.processColorInMaterial)(props.material) } : {});
+  };
+
+  var mountFunc = typeof mountConfig === 'string' ? ARGeosManager[mountConfig] : mountConfig.mount;
+
+  var updateFunc = typeof mountConfig === 'object' && mountConfig.update ? mountConfig.update : mountFunc;
+
+  var mount = function mount(id, props) {
+    mountFunc(getNonNodeProps(props), nodeProps(id, props), props.frame);
+  };
+  var update = function update(id, props) {
+    updateFunc(getNonNodeProps(props), nodeProps(id, props), props.frame);
+  };
+
+  var ARComponent = _wrapComponent('_component')(function (_Component) {
+    _inherits(_class2, _Component);
+
+    function _class2() {
+      var _ref;
+
+      var _temp, _this, _ret;
+
+      _classCallCheck(this, _class2);
+
+      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _class2.__proto__ || Object.getPrototypeOf(_class2)).call.apply(_ref, [this].concat(args))), _this), _this.identifier = null, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(_class2, [{
+      key: 'componentDidMount',
+      value: function componentDidMount() {
+        this.identifier = this.props.id || (0, _generateId2.default)();
+
+        var _props = this.props,
+            propsOnMount = _props.propsOnMount,
+            props = _objectWithoutProperties(_props, ['propsOnMount']);
+
+        if (propsOnMount) {
+          mount(this.identifier, _extends({}, props, propsOnMount));
+          this.componentWillUpdate(props);
+        } else {
+          mount(this.identifier, props);
+        }
+      }
+    }, {
+      key: 'componentWillUpdate',
+      value: function componentWillUpdate(props) {
+        var _this2 = this;
+
+        var changedKeys = (0, _filter2.default)((0, _keys2.default)(this.props), function (key) {
+          return !(0, _fastDeepEqual2.default)(props[key], _this2.props[key]);
+        });
+
+        if ((0, _isEmpty2.default)(changedKeys)) {
+          return;
+        }
+        if (__DEV__) {
+          var nonAllowedUpdates = (0, _filter2.default)(changedKeys, function (k) {
+            return IMMUTABLE_PROPS.includes(k);
+          });
+          if (nonAllowedUpdates.length > 0) {
+            throw new Error('prop can\'t be updated: \'' + nonAllowedUpdates.join(', ') + '\'');
+          }
+        }
+        if ((0, _some2.default)(NODE_PROPS, function (k) {
+          return changedKeys.includes(k);
+        })) {
+          ARGeosManager.updateNode(this.identifier, (0, _pick2.default)(props, NODE_PROPS));
+        }
+
+        if ((0, _some2.default)(nonNodePropKeys, function (k) {
+          return changedKeys.includes(k);
+        })) {
+          update(this.identifier, props);
+        }
+      }
+    }, {
+      key: 'componentWillUnmount',
+      value: function componentWillUnmount() {
+        var _this3 = this;
+
+        var _props2 = this.props,
+            propsOnUnmount = _props2.propsOnUnmount,
+            props = _objectWithoutProperties(_props2, ['propsOnUnmount']);
+
+        if (propsOnUnmount) {
+          var fullProps = _extends({}, props, propsOnUnmount);
+          var _fullProps$transition = fullProps.transition;
+          _fullProps$transition = _fullProps$transition === undefined ? {} : _fullProps$transition;
+          var _fullProps$transition2 = _fullProps$transition.duration,
+              duration = _fullProps$transition2 === undefined ? 0 : _fullProps$transition2;
+
+
+          this.componentWillUpdate(fullProps);
+          global.setTimeout(function () {
+            ARGeosManager.unmount(_this3.identifier);
+          }, duration * 1000);
+        } else {
+          ARGeosManager.unmount(this.identifier);
+        }
+      }
+    }, {
+      key: 'render',
+      value: function render() {
+        return null;
+      }
+    }]);
+
+    return _class2;
+  }(_react2.Component));
+
+  ARComponent.propTypes = allPropTypes;
+
+  return ARComponent;
+};

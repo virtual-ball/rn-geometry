@@ -1,0 +1,25 @@
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _propTypes3 = require('./lib/propTypes');
+
+var _createArComponent = require('./lib/createArComponent');
+
+var _createArComponent2 = _interopRequireDefault(_createArComponent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ARPlane = (0, _createArComponent2.default)('addPlane', {
+  shape: _propTypes2.default.shape({
+    width: _propTypes2.default.number,
+    height: _propTypes2.default.number,
+    cornerRadius: _propTypes2.default.number,
+    cornerSegmentCount: _propTypes2.default.number,
+    widthSegmentCount: _propTypes2.default.number,
+    heightSegmentCount: _propTypes2.default.number
+  }),
+  material: _propTypes3.material
+});
+
+module.exports = ARPlane;

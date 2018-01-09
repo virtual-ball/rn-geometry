@@ -1,0 +1,351 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Ball/Ball.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNativeArkit = require('react-native-arkit');
+
+var _reactNative = require('react-native');
+
+var _reactNativeCamera = require('react-native-camera');
+
+var _reactNativeCamera2 = _interopRequireDefault(_reactNativeCamera);
+
+var _Dashboard = require('./Dashboard/Dashboard.js');
+
+var _Dashboard2 = _interopRequireDefault(_Dashboard);
+
+var _Menu = require('./Menu/Menu.js');
+
+var _Menu2 = _interopRequireDefault(_Menu);
+
+var _GeoToast = require('../GeoToast/GeoToast.js');
+
+var _GeoToast2 = _interopRequireDefault(_GeoToast);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  Ball: {
+    displayName: 'Ball'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Ball/Ball.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var style = {
+  bg: {
+    flex: 1, backgroundColor: '#000', height: '100%'
+  },
+  canvas: {
+    flex: 1,
+    position: 'relative',
+    height: '100%'
+  }
+};
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    windowWidth = _Dimensions$get.width,
+    windowHeight = _Dimensions$get.height;
+
+var Ball = _wrapComponent('Ball')(function (_Component) {
+  _inherits(Ball, _Component);
+
+  function Ball(props) {
+    _classCallCheck(this, Ball);
+
+    var _this = _possibleConstructorReturn(this, (Ball.__proto__ || Object.getPrototypeOf(Ball)).call(this, props));
+
+    _this.componentDidMount = function () {
+      _this.refs.toast.show('正在初始化阶段 请把您的手机镜头保持平稳', 6000);
+      _this.checkCameraStatus();
+    };
+
+    _this.checkCameraStatus = function () {
+      _reactNativeCamera2.default.checkVideoAuthorizationStatus().then(function (access) {
+        if (!access) {
+          _this.state.isCameraAuth = false;
+          _reactNative.Alert.alert('需要启用相机权限', '请在iPhone的“设置-隐私”选项中,允许访问您的相机权限');
+          _this.setState(_this.state);
+        } else {
+          _this.state.isCameraAuth = true;
+          _this.setState(_this.state);
+        }
+      });
+    };
+
+    _this.triggerMenuSelect = function (type) {
+      if (!_this.state.isCameraAuth) {
+        _this.checkCameraStatus();return;
+      }
+
+      _this.state.isMenuShow = false;
+      _this.state.type = type;
+      _this.state.rotate = 0;
+      _this.state.size = 1;
+      _this.state.diffuse = 'white';
+      _this.setState(_this.state);
+    };
+
+    _this.triggerMenuClose = function () {
+      if (!_this.state.isCameraAuth) {
+        _this.checkCameraStatus();return;
+      }
+      _this.state.type = _this.state.type || 'triangle';
+      _this.state.isMenuShow = false;
+      _this.setState(_this.state);
+    };
+
+    _this.triggerReload = function () {};
+
+    _this.triggerFeedbackSelect = function () {
+      _this.props.onTriggerFeedbackSelect();
+    };
+
+    _this.triggerSwitchMenu = function () {
+      _this.state.isMenuShow = true;
+      _this.setState(_this.state);
+    };
+
+    _this.triggerSwitchRotate = function (rotate) {
+      _this.state.rotate = rotate;
+      _this.setState(_this.state);
+    };
+
+    _this.triggerSwitchSize = function (size) {
+      _this.state.size = size;
+      _this.setState(_this.state);
+    };
+
+    _this.triggerSwitchColor = function (color) {
+      _this.state.diffuse = color;
+      _this.setState(_this.state);
+    };
+
+    _this.state = {
+      isCameraAuth: false,
+      isMenuShow: true,
+      type: '',
+      rotate: 0,
+      size: 1,
+      diffuse: 'white'
+    };
+    return _this;
+  }
+
+  _createClass(Ball, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: style.bg, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 160
+          }
+        },
+        _react3.default.createElement(
+          _reactNativeArkit.ARKit,
+          {
+            style: style.canvas,
+            lightEstimationEnabled: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 161
+            }
+          },
+          this.state.type === 'square' && _react3.default.createElement(_reactNativeArkit.ARKit.Box, {
+            id: 'object_1',
+            eulerAngles: {
+              x: 0,
+              y: this.state.rotate,
+              z: 0
+            },
+            position: { x: 0, y: -0.2, z: -0.2 },
+            shape: { width: 0.1 * this.state.size, height: 0.1 * this.state.size, length: 0.1 * this.state.size, chamfer: 0.008 * this.state.size },
+            material: { diffuse: this.state.diffuse },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 167
+            }
+          }),
+          this.state.type === 'circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Sphere, {
+            id: 'object_2',
+            eulerAngles: {
+              x: 0,
+              y: 0,
+              z: 0
+            },
+            position: { x: 0, y: -0.2, z: -0.2 },
+            shape: { radius: 0.05 * this.state.size },
+            material: { diffuse: this.state.diffuse },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 181
+            }
+          }),
+          this.state.type === 'triangle' && _react3.default.createElement(_reactNativeArkit.ARKit.Pyramid, {
+            id: 'object_3',
+            eulerAngles: {
+              x: 0,
+              y: this.state.rotate,
+              z: 0
+            },
+            position: { x: 0, y: -0.2, z: -0.2 },
+            shape: { width: 0.1 * this.state.size, height: 0.1 * this.state.size, length: 0.1 * this.state.size },
+            material: { diffuse: this.state.diffuse },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 195
+            }
+          }),
+          this.state.type === 'x-circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Cone, {
+            id: 'object_4',
+            eulerAngles: {
+              x: this.state.rotate,
+              y: 0,
+              z: 0
+            },
+            position: { x: 0, y: -0.2, z: -0.2 },
+            shape: { topR: 0, bottomR: 0.05 * this.state.size, height: 0.15 * this.state.size },
+            material: { diffuse: this.state.diffuse },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 210
+            }
+          }),
+          this.state.type === 'plus-square' && _react3.default.createElement(_reactNativeArkit.ARKit.Box, {
+            id: 'object_5',
+            eulerAngles: {
+              x: this.state.rotate,
+              y: 0,
+              z: 0
+            },
+            position: { x: 0, y: -0.2, z: -0.2 },
+            shape: { width: 0.05 * this.state.size, height: 0.15 * this.state.size, length: 0.05 * this.state.size, chamfer: 0.007 * this.state.size },
+            material: { diffuse: this.state.diffuse },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 225
+            }
+          }),
+          this.state.type === 'plus-circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Cylinder, {
+            id: 'object_6',
+            eulerAngles: {
+              x: this.state.rotate,
+              y: 0,
+              z: 0
+            },
+            position: { x: 0, y: -0.2, z: -0.2 },
+            shape: { radius: 0.03 * this.state.size, height: 0.15 * this.state.size },
+            material: { diffuse: this.state.diffuse },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 240
+            }
+          }),
+          _react3.default.createElement(_reactNativeArkit.ARKit.Light, {
+            position: { x: 1, y: 3, z: 2 },
+            type: _reactNativeArkit.ARKit.LightType.Omni,
+            color: 'white',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 253
+            }
+          }),
+          _react3.default.createElement(_reactNativeArkit.ARKit.Light, {
+            position: { x: -1, y: 1, z: 0 },
+            type: _reactNativeArkit.ARKit.LightType.Spot,
+            eulerAngles: { x: -Math.PI / 2 },
+            spotInnerAngle: 45,
+            spotOuterAngle: 45,
+            color: 'purple',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 258
+            }
+          }),
+          this.state.isMenuShow && _react3.default.createElement(_Menu2.default, {
+            ref: 'menu',
+            onClickNavigateBall: function onClickNavigateBall(type) {
+              return _this2.triggerMenuSelect(type);
+            },
+            onClickNavigateFeedback: function onClickNavigateFeedback() {
+              return _this2.triggerFeedbackSelect();
+            },
+            onClickClose: function onClickClose() {
+              return _this2.triggerMenuClose();
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 268
+            }
+          }),
+          !this.state.isMenuShow && _react3.default.createElement(_Dashboard2.default, {
+            onClickMenuBtn: function onClickMenuBtn() {
+              return _this2.triggerSwitchMenu();
+            },
+            onClickReloadBtn: function onClickReloadBtn() {
+              return _this2.triggerReload();
+            },
+            onClickRotateBtn: function onClickRotateBtn(rotate) {
+              return _this2.triggerSwitchRotate(rotate);
+            },
+            onClickSizeBtn: function onClickSizeBtn(size) {
+              return _this2.triggerSwitchSize(size);
+            },
+            onClickColor: function onClickColor(color) {
+              return _this2.triggerSwitchColor(color);
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 277
+            }
+          }),
+          _react3.default.createElement(_GeoToast2.default, { position: 'top', positionValue: 20, ref: 'toast', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 284
+            }
+          })
+        )
+      );
+    }
+  }]);
+
+  return Ball;
+}(_react2.Component));
+
+exports.default = Ball;
+
+
+_reactNative.AppRegistry.registerComponent('ReactNativeARKit', function () {
+  return ReactNativeARKit;
+});

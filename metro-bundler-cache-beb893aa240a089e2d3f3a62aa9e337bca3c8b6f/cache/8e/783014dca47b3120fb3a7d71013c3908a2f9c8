@@ -1,0 +1,7 @@
+var BlurView = require('./src/BlurView');
+var VibrancyView = require('./src/VibrancyView');
+
+module.exports = {
+    BlurView: BlurView,
+    VibrancyView: VibrancyView
+};

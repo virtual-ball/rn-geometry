@@ -1,0 +1,26 @@
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _propTypes3 = require('./lib/propTypes');
+
+var _createArComponent = require('./lib/createArComponent');
+
+var _createArComponent2 = _interopRequireDefault(_createArComponent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ARShape = (0, _createArComponent2.default)('addShape', {
+  shape: _propTypes2.default.shape({
+    extrusion: _propTypes2.default.number,
+    pathSvg: _propTypes2.default.string,
+    pathFlatness: _propTypes2.default.number,
+    chamferMode: _propTypes3.chamferMode,
+    chamferRadius: _propTypes2.default.number,
+    chamferProfilePathSvg: _propTypes2.default.string,
+    chamferProfilePathFlatness: _propTypes2.default.string
+  }),
+  material: _propTypes3.material
+});
+
+module.exports = ARShape;

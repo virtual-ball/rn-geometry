@@ -26,6 +26,7 @@ export default class Menu extends Component {
     constructor(props){
         super(props);
         this.state = {
+            blur: 20,
             data: [
                 { key: 0, type: 'square' },
                 { key: 1, type: 'triangle' },
@@ -51,6 +52,10 @@ export default class Menu extends Component {
     }
 
 
+    setBlur = (num) => {
+        this.state.blur = num;
+        this.setState(this.state)
+    }
 
     /*
      * @
@@ -94,8 +99,8 @@ export default class Menu extends Component {
                     onPress={()=> {this.clickNavigateFeedback()}}
                     underlayColor="#EAEAEA">
                     <View>
-                        <Text style={{lineHeight: 150, textAlign: 'center', fontSize: 30, color: '#FFF'}}>
-                            <Icon name={'calendar'}  style={{fontSize: 30, color: '#FFF'}}/>  联系我们
+                        <Text style={{lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF'}}>
+                            <Icon name={'calendar'}  style={{fontSize: 23, color: '#FFF'}}/>  联系我们
                         </Text>
                     </View>
                 </TouchableWithoutFeedback>
@@ -106,7 +111,7 @@ export default class Menu extends Component {
         return (
             <BlurView
                 blurType="dark"
-                blurAmount={20}
+                blurAmount={this.state.blur}
                 style={style.bg}
             >
                 <FlatList data={this.state.data}

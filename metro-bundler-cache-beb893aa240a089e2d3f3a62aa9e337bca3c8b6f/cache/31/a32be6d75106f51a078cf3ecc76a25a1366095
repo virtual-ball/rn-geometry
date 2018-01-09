@@ -1,0 +1,18 @@
+var _reactNative = require('react-native');
+
+var deviceMotionEmitter = new _reactNative.NativeEventEmitter(_reactNative.NativeModules.DeviceMotion);
+var subscription = void 0;
+
+var DeviceMotion = {
+  start: function start(callback, interval) {
+    _reactNative.NativeModules.DeviceMotion.setUpdateInterval(interval);
+    subscription = deviceMotionEmitter.addListener('MotionData', callback);
+    _reactNative.NativeModules.DeviceMotion.startUpdates();
+  },
+  stop: function stop() {
+    subscription.remove();
+    _reactNative.NativeModules.DeviceMotion.stopUpdates();
+  }
+};
+
+module.exports = DeviceMotion;

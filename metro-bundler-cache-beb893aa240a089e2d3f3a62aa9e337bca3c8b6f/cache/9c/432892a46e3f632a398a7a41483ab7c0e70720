@@ -1,0 +1,317 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Ball/Dashboard/Dashboard.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _Feather = require('react-native-vector-icons/Feather');
+
+var _Feather2 = _interopRequireDefault(_Feather);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var _components = {
+    Color: {
+        displayName: 'Color'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Ball/Dashboard/Dashboard.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var Dimensions = require('Dimensions');
+var h = Dimensions.get('window').height;
+
+var style = {
+    bg: {
+        flex: 1,
+        position: 'relative',
+        backgroundColor: 'transparent',
+        height: '100%'
+    },
+    menuBtn: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        top: 0,
+        left: 0
+    },
+    reloadBtn: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        top: 0,
+        right: 0
+    },
+    rotateBtn: {
+        width: '100%',
+        height: h - 160,
+        position: 'absolute',
+        top: 80,
+        left: 0
+    },
+    minusBtn: {
+        width: 60,
+        height: 80,
+        position: 'absolute',
+        bottom: 0,
+        left: 0
+    },
+    plusBtn: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        bottom: 0,
+        left: 60
+    },
+    colorBtn: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        bottom: 0,
+        right: 0
+    }
+};
+
+var Color = _wrapComponent('Color')(function (_Component) {
+    _inherits(Color, _Component);
+
+    function Color(props) {
+        var _this2 = this;
+
+        _classCallCheck(this, Color);
+
+        var _this = _possibleConstructorReturn(this, (Color.__proto__ || Object.getPrototypeOf(Color)).call(this, props));
+
+        _this.componentDidMount = function _callee() {
+            return regeneratorRuntime.async(function _callee$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                        case 'end':
+                            return _context.stop();
+                    }
+                }
+            }, null, _this2);
+        };
+
+        _this.clickMenuBtn = function () {
+            _this.props.onClickMenuBtn();
+        };
+
+        _this.clickRotateBtn = function () {
+            var list = [0, Math.PI / 4, Math.PI / 2, 3 * Math.PI / 4, Math.PI, 5 * Math.PI / 4, 3 * Math.PI / 2, 7 * Math.PI / 4];
+            _this.state.rotateIndex === 7 ? _this.state.rotateIndex = 0 : _this.state.rotateIndex += 1;
+            _this.state.rotate = list[_this.state.rotateIndex];
+            _this.setState(_this.state);
+            _this.props.onClickRotateBtn(_this.state.rotate);
+        };
+
+        _this.clickMinusBtn = function () {
+            _this.state.size === 1 ? _this.state.size = 1 : --_this.state.size;
+            _this.setState(_this.state);
+            _this.props.onClickSizeBtn(_this.state.size / 10);
+        };
+
+        _this.clickReloadBtn = function () {
+            _this.props.onClickReloadBtn();
+        };
+
+        _this.clickPlusBtn = function () {
+            _this.state.size === 20 ? _this.state.size = 20 : ++_this.state.size;
+            _this.setState(_this.state);
+            _this.props.onClickSizeBtn(_this.state.size / 10);
+        };
+
+        _this.clickColorBtn = function () {
+            var list = ['white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple', 'gray'];
+            _this.state.diffuseIndex === 8 ? _this.state.diffuseIndex = 0 : _this.state.diffuseIndex += 1;
+            _this.state.diffuse = list[_this.state.diffuseIndex];
+            _this.setState(_this.state);
+            _this.props.onClickColor(_this.state.diffuse);
+        };
+
+        _this.state = {
+            diffuseIndex: 0,
+            diffuse: 'white',
+            rotateIndex: 0,
+            rotate: 0,
+            size: 10
+        };
+        return _this;
+    }
+
+    _createClass(Color, [{
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: style.bg, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 130
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.TouchableWithoutFeedback,
+                    {
+                        onPress: this.clickMenuBtn, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 131
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: style.menuBtn, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 133
+                            }
+                        },
+                        _react3.default.createElement(_Feather2.default, { name: 'menu', style: {
+                                fontSize: 20,
+                                position: 'absolute',
+                                left: 20,
+                                top: 30,
+                                color: '#FFF'
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 134
+                            }
+                        })
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.TouchableWithoutFeedback,
+                    {
+                        onPress: this.clickRotateBtn, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 161
+                        }
+                    },
+                    _react3.default.createElement(_reactNative.View, { style: style.rotateBtn, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 163
+                        }
+                    })
+                ),
+                _react3.default.createElement(
+                    _reactNative.TouchableWithoutFeedback,
+                    {
+                        onPress: this.clickMinusBtn, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 169
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: style.minusBtn, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 171
+                            }
+                        },
+                        _react3.default.createElement(_Feather2.default, { name: 'minus-circle', style: {
+                                fontSize: 40,
+                                position: 'absolute',
+                                left: 20,
+                                bottom: 20,
+                                color: '#FFF'
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 172
+                            }
+                        })
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.TouchableWithoutFeedback,
+                    {
+                        onPress: this.clickPlusBtn, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 185
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: style.plusBtn, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 187
+                            }
+                        },
+                        _react3.default.createElement(_Feather2.default, { name: 'plus-circle', style: {
+                                fontSize: 40,
+                                position: 'absolute',
+                                left: 20,
+                                bottom: 20,
+                                color: '#FFF'
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 188
+                            }
+                        })
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.TouchableWithoutFeedback,
+                    {
+                        onPress: this.clickColorBtn, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 199
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: style.colorBtn, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 201
+                            }
+                        },
+                        _react3.default.createElement(_Feather2.default, { name: 'circle', style: {
+                                fontSize: 40,
+                                position: 'absolute',
+                                right: 20,
+                                bottom: 20,
+                                color: this.state.diffuse
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 202
+                            }
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Color;
+}(_react2.Component));
+
+exports.default = Color;

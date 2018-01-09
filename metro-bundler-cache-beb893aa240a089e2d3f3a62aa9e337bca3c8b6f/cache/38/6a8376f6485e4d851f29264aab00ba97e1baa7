@@ -1,0 +1,252 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Ball/Menu/Menu.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _Feather = require('react-native-vector-icons/Feather');
+
+var _Feather2 = _interopRequireDefault(_Feather);
+
+var _reactNativeBlur = require('react-native-blur');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var _components = {
+    Menu: {
+        displayName: 'Menu'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Ball/Menu/Menu.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var style = {
+    bg: {
+        flex: 1,
+        height: '100%'
+    },
+    flatlist: {
+        flex: 1,
+        backgroundColor: 'transparent',
+        height: '100%'
+    },
+    closeBtn: {
+        width: 80,
+        height: 80,
+        position: 'absolute',
+        top: 0,
+        right: 0
+    }
+};
+
+var Menu = _wrapComponent('Menu')(function (_Component) {
+    _inherits(Menu, _Component);
+
+    function Menu(props) {
+        var _this2 = this;
+
+        _classCallCheck(this, Menu);
+
+        var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+
+        _this.componentDidMount = function _callee() {
+            return regeneratorRuntime.async(function _callee$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                        case 'end':
+                            return _context.stop();
+                    }
+                }
+            }, null, _this2);
+        };
+
+        _this.clickNavigateBall = function (type) {
+            _this.props.onClickNavigateBall(type);
+        };
+
+        _this.clickNavigateFeedback = function () {
+            _this.props.onClickNavigateFeedback();
+        };
+
+        _this.setBlur = function (num) {
+            _this.state.blur = num;
+            _this.setState(_this.state);
+        };
+
+        _this.close = function () {
+            _this.props.onClickClose();
+        };
+
+        _this._renderItem = function (data) {
+            return _react3.default.createElement(
+                _reactNative.TouchableWithoutFeedback,
+                {
+                    onPress: function onPress() {
+                        _this.clickNavigateBall(data.item.type);
+                    },
+                    underlayColor: '#EAEAEA', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 78
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 81
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        { style: { lineHeight: 150, textAlign: 'center' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 82
+                            }
+                        },
+                        _react3.default.createElement(_Feather2.default, { name: data.item.type, style: { fontSize: 40, color: '#FFF' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 83
+                            }
+                        })
+                    )
+                )
+            );
+        };
+
+        _this._ListFooterComponent = function () {
+            return _react3.default.createElement(
+                _reactNative.TouchableWithoutFeedback,
+                {
+                    onPress: function onPress() {
+                        _this.clickNavigateFeedback();
+                    },
+                    underlayColor: '#EAEAEA', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 98
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 101
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        { style: { lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 102
+                            }
+                        },
+                        _react3.default.createElement(_Feather2.default, { name: 'calendar', style: { fontSize: 23, color: '#FFF' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 103
+                            }
+                        }),
+                        '  \u8054\u7CFB\u6211\u4EEC'
+                    )
+                )
+            );
+        };
+
+        _this.state = {
+            blur: 20,
+            data: [{ key: 0, type: 'square' }, { key: 1, type: 'triangle' }, { key: 2, type: 'circle' }, { key: 3, type: 'x-circle' }, { key: 4, type: 'plus-square' }, { key: 5, type: 'plus-circle' }]
+        };
+        return _this;
+    }
+
+    _createClass(Menu, [{
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(
+                _reactNativeBlur.BlurView,
+                {
+                    blurType: 'dark',
+                    blurAmount: this.state.blur,
+                    style: style.bg,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 112
+                    }
+                },
+                _react3.default.createElement(_reactNative.FlatList, { data: this.state.data,
+                    extraData: this.state,
+                    renderItem: this._renderItem,
+                    ListFooterComponent: this._ListFooterComponent,
+                    style: style.flatlist, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 117
+                    }
+                }),
+                _react3.default.createElement(
+                    _reactNative.TouchableWithoutFeedback,
+                    {
+                        onPress: this.close, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 123
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: style.closeBtn, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 125
+                            }
+                        },
+                        _react3.default.createElement(_Feather2.default, { name: 'x', style: {
+                                fontSize: 20,
+                                position: 'absolute',
+                                right: 20,
+                                top: 30,
+                                color: '#FFF'
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 126
+                            }
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Menu;
+}(_react2.Component));
+
+exports.default = Menu;

@@ -1,0 +1,194 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/node_modules/react-native-arkit/hocs/withProjectedPosition.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactAnimationFrame = require('@panter/react-animation-frame');
+
+var _reactAnimationFrame2 = _interopRequireDefault(_reactAnimationFrame);
+
+var _lodash = require('lodash');
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  _component: {
+    isInFunction: true
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/node_modules/react-native-arkit/hocs/withProjectedPosition.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var ARKitManager = _reactNative.NativeModules.ARKitManager;
+
+var roundPoint = function roundPoint(_ref, precision) {
+  var x = _ref.x,
+      y = _ref.y,
+      z = _ref.z;
+  return {
+    x: (0, _lodash.round)(x, precision),
+    y: (0, _lodash.round)(y, precision),
+    z: (0, _lodash.round)(z, precision)
+  };
+};
+
+exports.default = function () {
+  var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref2$throttleMs = _ref2.throttleMs,
+      throttleMs = _ref2$throttleMs === undefined ? 33 : _ref2$throttleMs;
+
+  return function (C) {
+    return (0, _reactAnimationFrame2.default)(_wrapComponent('_component')(function (_Component) {
+      _inherits(_class2, _Component);
+
+      function _class2(props) {
+        _classCallCheck(this, _class2);
+
+        var _this = _possibleConstructorReturn(this, (_class2.__proto__ || Object.getPrototypeOf(_class2)).call(this, props));
+
+        _this.projectionRunning = true;
+        _this._isMounted = false;
+
+        _this.state = {
+          positionProjected: props.position || { x: 0, y: 0, z: 0 },
+          projectionResult: null
+        };
+        _this.handleAnimation(props);
+        return _this;
+      }
+
+      _createClass(_class2, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+          this._isMounted = true;
+        }
+      }, {
+        key: 'handleAnimation',
+        value: function handleAnimation(_ref3) {
+          var projectionEnabled = _ref3.projectionEnabled;
+
+          if (projectionEnabled) {
+            if (!this.projectionRunning) {
+              this.projectionRunning = true;
+              this.props.startAnimation();
+            }
+          } else if (this.projectionRunning) {
+            this.projectionRunning = false;
+            this.props.endAnimation();
+          }
+        }
+      }, {
+        key: 'componentWillUpdate',
+        value: function componentWillUpdate(_ref4) {
+          var _ref4$projectionEnabl = _ref4.projectionEnabled,
+              projectionEnabled = _ref4$projectionEnabl === undefined ? true : _ref4$projectionEnabl;
+
+          this.handleAnimation({ projectionEnabled: projectionEnabled });
+        }
+      }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+          this._isMounted = false;
+        }
+      }, {
+        key: 'onResult',
+        value: function onResult(result) {
+          if (this._isMounted) {
+            if (result) {
+              this.setState({
+                positionProjected: roundPoint(result.point, 3),
+                projectionResult: result
+              });
+            } else {
+              this.setState({
+                positionProjected: null,
+                projectionResult: null
+              });
+            }
+            if (this.props.onProjectedPosition) {
+              this.props.onProjectedPosition(result);
+            }
+          }
+        }
+      }, {
+        key: 'onAnimationFrame',
+        value: function onAnimationFrame() {
+          var _this2 = this;
+
+          var _ref5 = this.props.projectPosition || {},
+              x = _ref5.x,
+              y = _ref5.y,
+              plane = _ref5.plane,
+              node = _ref5.node;
+
+          if (plane) {
+            ARKitManager.hitTestPlanes({ x: x, y: y }, ARKitManager.ARHitTestResultType.ExistingPlane).then(function (_ref6) {
+              var results = _ref6.results;
+
+              var result = (0, _lodash.isFunction)(plane) ? plane(results) : results.find(function (r) {
+                return r.id === plane;
+              });
+              _this2.onResult(result);
+            });
+          } else if (node) {
+            ARKitManager.hitTestSceneObjects({ x: x, y: y }).then(function (_ref7) {
+              var results = _ref7.results;
+
+              var result = (0, _lodash.isFunction)(node) ? node(results) : results.find(function (r) {
+                return r.id === node;
+              });
+              _this2.onResult(result);
+            });
+          }
+        }
+      }, {
+        key: 'render',
+        value: function render() {
+          return _react3.default.createElement(C, _extends({
+            positionProjected: this.state.positionProjected,
+            projectionResult: this.state.projectionResult
+          }, this.props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 93
+            }
+          }));
+        }
+      }]);
+
+      return _class2;
+    }(_react2.Component)), throttleMs);
+  };
+};

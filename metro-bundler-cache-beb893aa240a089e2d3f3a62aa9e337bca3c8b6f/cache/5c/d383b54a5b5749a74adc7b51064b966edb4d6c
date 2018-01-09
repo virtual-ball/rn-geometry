@@ -1,0 +1,75 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.material = exports.colorBufferWriteMask = exports.shadowMode = exports.lightType = exports.color = exports.chamferMode = exports.blendMode = exports.renderingOrder = exports.castsShadow = exports.lightingModel = exports.shaders = exports.orientation = exports.rotation = exports.eulerAngles = exports.transition = exports.categoryBitMask = exports.scale = exports.position = undefined;
+
+var _PropTypes$shape;
+
+var _lodash = require('lodash');
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var ARKitManager = _reactNative.NativeModules.ARKitManager;
+
+var position = exports.position = _propTypes2.default.shape({
+  x: _propTypes2.default.number,
+  y: _propTypes2.default.number,
+  z: _propTypes2.default.number
+});
+
+var scale = exports.scale = _propTypes2.default.number;
+var categoryBitMask = exports.categoryBitMask = _propTypes2.default.number;
+var transition = exports.transition = _propTypes2.default.shape({
+  duration: _propTypes2.default.number
+});
+var eulerAngles = exports.eulerAngles = _propTypes2.default.shape({
+  x: _propTypes2.default.number,
+  y: _propTypes2.default.number,
+  z: _propTypes2.default.number
+});
+
+var rotation = exports.rotation = _propTypes2.default.shape({
+  x: _propTypes2.default.number,
+  y: _propTypes2.default.number,
+  z: _propTypes2.default.number,
+  w: _propTypes2.default.number
+});
+
+var orientation = exports.orientation = _propTypes2.default.shape({
+  x: _propTypes2.default.number,
+  y: _propTypes2.default.number,
+  z: _propTypes2.default.number,
+  w: _propTypes2.default.number
+});
+
+var shaders = exports.shaders = _propTypes2.default.shape((_PropTypes$shape = {}, _defineProperty(_PropTypes$shape, ARKitManager.ShaderModifierEntryPoint.Geometry, _propTypes2.default.string), _defineProperty(_PropTypes$shape, ARKitManager.ShaderModifierEntryPoint.Surface, _propTypes2.default.string), _defineProperty(_PropTypes$shape, ARKitManager.ShaderModifierEntryPoint.LightingModel, _propTypes2.default.string), _defineProperty(_PropTypes$shape, ARKitManager.ShaderModifierEntryPoint.Fragment, _propTypes2.default.string), _PropTypes$shape));
+
+var lightingModel = exports.lightingModel = _propTypes2.default.oneOf((0, _lodash.values)(ARKitManager.LightingModel));
+
+var castsShadow = exports.castsShadow = _propTypes2.default.bool;
+var renderingOrder = exports.renderingOrder = _propTypes2.default.number;
+var blendMode = exports.blendMode = _propTypes2.default.oneOf((0, _lodash.values)(ARKitManager.BlendMode));
+var chamferMode = exports.chamferMode = _propTypes2.default.oneOf((0, _lodash.values)(ARKitManager.ChamferMode));
+var color = exports.color = _propTypes2.default.string;
+
+var lightType = exports.lightType = _propTypes2.default.oneOf((0, _lodash.values)(ARKitManager.LightType));
+var shadowMode = exports.shadowMode = _propTypes2.default.oneOf((0, _lodash.values)(ARKitManager.ShadowMode));
+var colorBufferWriteMask = exports.colorBufferWriteMask = _propTypes2.default.oneOf((0, _lodash.values)(ARKitManager.ColorMask));
+var material = exports.material = _propTypes2.default.shape({
+  color: color,
+  metalness: _propTypes2.default.number,
+  roughness: _propTypes2.default.number,
+  blendMode: blendMode,
+  lightingModel: lightingModel,
+  shaders: shaders,
+  writesToDepthBuffer: _propTypes2.default.bool,
+  colorBufferWriteMask: colorBufferWriteMask
+});

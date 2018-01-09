@@ -1,0 +1,223 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.DURATION = undefined;
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/components/GeoToast/GeoToast.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    GeoToast: {
+        displayName: 'GeoToast'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/components/GeoToast/GeoToast.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var ViewPropTypes = _reactNative.ViewPropTypes || _reactNative.View.propTypes;
+
+var DURATION = exports.DURATION = {
+    LENGTH_LONG: 2000,
+    LENGTH_SHORT: 500,
+    FOREVER: 0
+};
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    height = _Dimensions$get.height,
+    width = _Dimensions$get.width;
+
+var GeoToast = _wrapComponent('GeoToast')(function (_Component) {
+    _inherits(GeoToast, _Component);
+
+    function GeoToast(props) {
+        _classCallCheck(this, GeoToast);
+
+        var _this = _possibleConstructorReturn(this, (GeoToast.__proto__ || Object.getPrototypeOf(GeoToast)).call(this, props));
+
+        _this.state = {
+            isShow: false,
+            text: '',
+            opacityValue: new _reactNative.Animated.Value(_this.props.opacity)
+        };
+        return _this;
+    }
+
+    _createClass(GeoToast, [{
+        key: 'show',
+        value: function show(text, duration) {
+            var _this2 = this;
+
+            this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
+
+            this.setState({
+                isShow: true,
+                text: text
+            });
+
+            _reactNative.Animated.timing(this.state.opacityValue, {
+                toValue: this.props.opacity,
+                duration: this.props.fadeInDuration
+            }).start(function () {
+                _this2.isShow = true;
+                if (duration !== DURATION.FOREVER) _this2.close();
+            });
+        }
+    }, {
+        key: 'close',
+        value: function close(duration) {
+            var _this3 = this;
+
+            var delay = typeof duration === 'undefined' ? this.duration : duration;
+
+            if (delay === DURATION.FOREVER) delay = this.props.defaultCloseDelay || 250;
+
+            if (!this.isShow && !this.state.isShow) return;
+            this.timer && clearTimeout(this.timer);
+            this.timer = setTimeout(function () {
+                _reactNative.Animated.timing(_this3.state.opacityValue, {
+                    toValue: 0.0,
+                    duration: _this3.props.fadeOutDuration
+                }).start(function () {
+                    _this3.setState({
+                        isShow: false
+                    });
+                    _this3.isShow = false;
+                });
+            }, delay);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.timer && clearTimeout(this.timer);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var pos = void 0;
+            switch (this.props.position) {
+                case 'top':
+                    pos = this.props.positionValue;
+                    break;
+                case 'center':
+                    pos = height / 2;
+                    break;
+                case 'bottom':
+                    pos = height - this.props.positionValue;
+                    break;
+            }
+
+            var view = this.state.isShow ? _react3.default.createElement(
+                _reactNative.View,
+                {
+                    style: [styles.container, { top: pos }],
+                    pointerEvents: 'none',
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 96
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.Animated.View,
+                    {
+                        style: [styles.content, { opacity: this.state.opacityValue }, this.props.style],
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 100
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        { style: this.props.textStyle, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 103
+                            }
+                        },
+                        this.state.text
+                    )
+                )
+            ) : null;
+            return view;
+        }
+    }]);
+
+    return GeoToast;
+}(_react2.Component));
+
+exports.default = GeoToast;
+
+
+var styles = _reactNative.StyleSheet.create({
+    container: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        elevation: 999,
+        alignItems: 'center',
+        zIndex: 10000
+    },
+    content: {
+        backgroundColor: 'black',
+        borderRadius: 5,
+        paddingTop: 6,
+        paddingBottom: 6,
+        paddingLeft: 10,
+        paddingRight: 10
+    },
+    text: {
+        fontSize: 11,
+        color: 'white'
+    }
+});
+
+GeoToast.propTypes = {
+    style: ViewPropTypes.style,
+    position: _propTypes2.default.oneOf(['top', 'center', 'bottom']),
+    textStyle: _reactNative.Text.propTypes.style,
+    positionValue: _propTypes2.default.number,
+    fadeInDuration: _propTypes2.default.number,
+    fadeOutDuration: _propTypes2.default.number,
+    opacity: _propTypes2.default.number
+};
+
+GeoToast.defaultProps = {
+    position: 'bottom',
+    textStyle: styles.text,
+    positionValue: 120,
+    fadeInDuration: 500,
+    fadeOutDuration: 500,
+    opacity: 0.6
+};

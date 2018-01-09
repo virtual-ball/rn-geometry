@@ -7,6 +7,7 @@ import Camera from 'react-native-camera';
 
 import Dashboard from './Dashboard/Dashboard.js';
 import Menu from './Menu/Menu.js';
+import GeoToast, {DURATION} from '../GeoToast/GeoToast.js';
 
 let style = {
     bg: {
@@ -27,7 +28,7 @@ export default class Ball extends Component {
       this.state = {
           isCameraAuth: false,
           isMenuShow: true,
-          type: 'triangle',
+          type: '',
           rotate: 0,
           size: 1,
           diffuse: 'white'
@@ -35,6 +36,7 @@ export default class Ball extends Component {
   }
 
   componentDidMount = () => {
+    this.refs.toast.show('正在初始化阶段 请把您的手机镜头保持平稳', 6000);
     this.checkCameraStatus();
   }
 
@@ -48,10 +50,12 @@ export default class Ball extends Component {
           .then(access => {
                 if(!access) {
                     this.state.isCameraAuth = false;
-                    Alert.alert('需要启用相机权限', '请在iPhone的“设置-隐私”选项中,允许访问您的相机权限')
+                    Alert.alert('需要启用相机权限', '请在iPhone的“设置-隐私”选项中,允许访问您的相机权限');
+                    this.setState(this.state)
                 }
                 else {
                     this.state.isCameraAuth = true;
+                    this.setState(this.state)
                 }
             });
   }
@@ -84,6 +88,7 @@ export default class Ball extends Component {
     if (!this.state.isCameraAuth) {
       this.checkCameraStatus(); return;
     }
+    this.state.type = this.state.type || 'triangle';
     this.state.isMenuShow = false;
     this.setState(this.state);
   }
@@ -167,7 +172,7 @@ export default class Ball extends Component {
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ width: 0.1 * this.state.size, height: 0.1 * this.state.size, length: 0.1 * this.state.size, chamfer: 0.01 * this.state.size }}
+            shape={{ width: 0.1 * this.state.size, height: 0.1 * this.state.size, length: 0.1 * this.state.size, chamfer: 0.008 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -204,13 +209,13 @@ export default class Ball extends Component {
         { this.state.type === 'x-circle' &&
           <ARKit.Cone
             id="object_4"
-            eulerAngles={{ 
-              x: 2 * this.state.rotate,
+            eulerAngles={{
+              x: this.state.rotate,
               y: 0,
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ topR: 0, bottomR: 0.05 * this.state.size, height: 0.1 * this.state.size }}
+            shape={{ topR: 0, bottomR: 0.05 * this.state.size, height: 0.15 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -220,12 +225,12 @@ export default class Ball extends Component {
           <ARKit.Box
             id="object_5"
             eulerAngles={{ 
-              x: 0,
-              y: this.state.rotate,
+              x: this.state.rotate,
+              y: 0,
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ width: 0.1 * this.state.size, height: 0.2 * this.state.size, length: 0.1 * this.state.size, chamfer: 0.01 * this.state.size }}
+            shape={{ width: 0.05 * this.state.size, height: 0.15 * this.state.size, length: 0.05 * this.state.size, chamfer: 0.007 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -240,7 +245,7 @@ export default class Ball extends Component {
               z: 0
             }}
             position={{ x: 0, y: -0.2, z: -0.2 }}
-            shape={{ radius: 0.05 * this.state.size, height: 0.1 * this.state.size }}
+            shape={{ radius: 0.03 * this.state.size, height: 0.15 * this.state.size }}
             material={{ diffuse: this.state.diffuse }}
           />
         }
@@ -261,6 +266,7 @@ export default class Ball extends Component {
 
         { this.state.isMenuShow && 
           <Menu 
+           ref="menu"
            onClickNavigateBall={(type) => this.triggerMenuSelect(type)}
            onClickNavigateFeedback={() => this.triggerFeedbackSelect()}
            onClickClose={() => this.triggerMenuClose()}
@@ -275,6 +281,7 @@ export default class Ball extends Component {
            onClickSizeBtn={(size) => this.triggerSwitchSize(size)}
            onClickColor={(color) => this.triggerSwitchColor(color)}/>
         }
+        <GeoToast position={'top'} positionValue={20} ref="toast"/>
         </ARKit>
       </View>
     );

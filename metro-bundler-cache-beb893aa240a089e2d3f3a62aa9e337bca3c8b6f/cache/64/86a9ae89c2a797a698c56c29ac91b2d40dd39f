@@ -1,0 +1,35 @@
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _propTypes3 = require('./lib/propTypes');
+
+var _createArComponent = require('./lib/createArComponent');
+
+var _createArComponent2 = _interopRequireDefault(_createArComponent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ARLight = (0, _createArComponent2.default)('addLight', {
+  type: _propTypes3.lightType,
+  color: _propTypes3.color,
+  temperature: _propTypes2.default.number,
+  intensity: _propTypes2.default.number,
+  attenuationStartDistance: _propTypes2.default.number,
+  attenuationEndDistance: _propTypes2.default.number,
+  spotInnerAngle: _propTypes2.default.number,
+  spotOuterAngle: _propTypes2.default.number,
+  castsShadow: _propTypes2.default.bool,
+  shadowRadius: _propTypes2.default.number,
+  shadowColor: _propTypes3.color,
+
+  shadowSampleCount: _propTypes2.default.number,
+  shadowMode: _propTypes3.shadowMode,
+  shadowBias: _propTypes2.default.number,
+  orthographicScale: _propTypes2.default.number,
+  zFar: _propTypes2.default.number,
+  zNear: _propTypes2.default.number,
+  lightCategoryBitMask: _propTypes3.categoryBitMask
+});
+
+module.exports = ARLight;
