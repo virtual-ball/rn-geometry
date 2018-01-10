@@ -41,6 +41,7 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeARKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeARKitTests.m */; };
+		4B4F2B3EF0774EFA87A3D2DA /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F69B4F7736466A89D7599E /* libicucore.tbd */; };
 		50012AF880B04DFDB4026EDA /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96572630890D486883487C9D /* FontAwesome.ttf */; };
 		5259E2CE676142B18E867C95 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CE0F54E38E1494AA4027525 /* MaterialCommunityIcons.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -59,6 +60,7 @@
 		D153461CAB054899B03F2949 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1BE5D91D7664906BA69DA9F /* Entypo.ttf */; };
 		D8FBDE8D58C0445398E29B5D /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06D7AFDF47E244EFB3E3ED95 /* Zocial.ttf */; };
 		E471476F8C9740208C74E136 /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002AD8EAEA784C32AD508D4F /* libRNBlur.a */; };
+		F3498C40634B4217BAA5453A /* libRCTMixpanelBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 767A8276A3CD46B399F590BA /* libRCTMixpanelBridge.a */; };
 		F3AF6ED346374CADAC5146F6 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6470F7E4DE641E4BF850290 /* MaterialIcons.ttf */; };
 /* End PBXBuildFile section */
 
@@ -280,6 +282,13 @@
 			remoteGlobalIDString = 64D1BD361EEFE88700F3F219;
 			remoteInfo = "RNBlur-tvOS";
 		};
+		4FBDE8EE2006674800DB7E41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E002A476D1F64B83BE333158 /* RCTMixpanelBridge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 04F752131E49099100236420;
+			remoteInfo = RCTMixpanelBridge;
+		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
@@ -429,6 +438,8 @@
 		47E7A320952243529B327387 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		60180AD567EE41B59C70A1B1 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		69F69B4F7736466A89D7599E /* libicucore.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		767A8276A3CD46B399F590BA /* libRCTMixpanelBridge.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTMixpanelBridge.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8CE0F54E38E1494AA4027525 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -444,6 +455,7 @@
 		BD98DCAEDC2C4B8D85311B75 /* RCTARKit.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTARKit.xcodeproj; path = "../node_modules/react-native-arkit/ios/RCTARKit.xcodeproj"; sourceTree = "<group>"; };
 		C1BE5D91D7664906BA69DA9F /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		D0C79C8788674B0180202F7D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		E002A476D1F64B83BE333158 /* RCTMixpanelBridge.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTMixpanelBridge.xcodeproj; path = "../node_modules/react-native-mixpanel-bridge/ios/RCTMixpanelBridge/RCTMixpanelBridge.xcodeproj"; sourceTree = "<group>"; };
 		FB1327E368344D76AE29F4B3 /* RNBlur.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -482,6 +494,8 @@
 				98915F9B96174491BDEA7B65 /* libRNVectorIcons.a in Frameworks */,
 				E471476F8C9740208C74E136 /* libRNBlur.a in Frameworks */,
 				B74F528B8B234D9088B42276 /* libRCTCamera.a in Frameworks */,
+				F3498C40634B4217BAA5453A /* libRCTMixpanelBridge.a in Frameworks */,
+				4B4F2B3EF0774EFA87A3D2DA /* libicucore.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +590,7 @@
 				1017B6F01F1F386B00448C01 /* SceneKit.framework */,
 				1017B6EE1F1F37BB00448C01 /* ARKit.framework */,
 				103395771F1DCD130070B4BB /* CoreMotion.framework */,
+				69F69B4F7736466A89D7599E /* libicucore.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -595,6 +610,7 @@
 				9615D62FEFDE4197AE942657 /* libRNVectorIcons.a */,
 				002AD8EAEA784C32AD508D4F /* libRNBlur.a */,
 				233A838CE8584FA190364162 /* libRCTCamera.a */,
+				767A8276A3CD46B399F590BA /* libRCTMixpanelBridge.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -672,6 +688,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4FBDE8DE2006673700DB7E41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FBDE8EF2006674800DB7E41 /* libRCTMixpanelBridge.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +752,7 @@
 				9A21F61CE9734444B662F2EA /* RNVectorIcons.xcodeproj */,
 				FB1327E368344D76AE29F4B3 /* RNBlur.xcodeproj */,
 				47E7A320952243529B327387 /* RCTCamera.xcodeproj */,
+				E002A476D1F64B83BE333158 /* RCTMixpanelBridge.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -946,6 +971,10 @@
 				{
 					ProductGroup = 78C398B11ACF4ADC00677621 /* Products */;
 					ProjectRef = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
+				},
+				{
+					ProductGroup = 4FBDE8DE2006673700DB7E41 /* Products */;
+					ProjectRef = E002A476D1F64B83BE333158 /* RCTMixpanelBridge.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302D41ABCB9D200DB3ED1 /* Products */;
@@ -1192,6 +1221,13 @@
 			fileType = archive.ar;
 			path = libRNBlur.a;
 			remoteRef = 4F56ED012000A31C00AC45CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FBDE8EF2006674800DB7E41 /* libRCTMixpanelBridge.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTMixpanelBridge.a;
+			remoteRef = 4FBDE8EE2006674800DB7E41 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
@@ -1448,12 +1484,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-blur/ios",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"$(SRCROOT)/../node_modules/react-native-mixpanel-bridge/ios/RCTMixpanelBridge/**",
 				);
 				INFOPLIST_FILE = ReactNativeARKitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1481,12 +1519,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-blur/ios",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"$(SRCROOT)/../node_modules/react-native-mixpanel-bridge/ios/RCTMixpanelBridge/**",
 				);
 				INFOPLIST_FILE = ReactNativeARKitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1516,6 +1556,7 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-blur/ios",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"$(SRCROOT)/../node_modules/react-native-mixpanel-bridge/ios/RCTMixpanelBridge/**",
 				);
 				INFOPLIST_FILE = ReactNativeARKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1545,6 +1586,7 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-blur/ios",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"$(SRCROOT)/../node_modules/react-native-mixpanel-bridge/ios/RCTMixpanelBridge/**",
 				);
 				INFOPLIST_FILE = ReactNativeARKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1579,11 +1621,13 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-blur/ios",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"$(SRCROOT)/../node_modules/react-native-mixpanel-bridge/ios/RCTMixpanelBridge/**",
 				);
 				INFOPLIST_FILE = "ReactNativeARKit-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1620,11 +1664,13 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-blur/ios",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"$(SRCROOT)/../node_modules/react-native-mixpanel-bridge/ios/RCTMixpanelBridge/**",
 				);
 				INFOPLIST_FILE = "ReactNativeARKit-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1661,6 +1707,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeARKit-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1685,6 +1732,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

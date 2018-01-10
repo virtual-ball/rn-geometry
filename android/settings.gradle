@@ -1,4 +1,6 @@
 rootProject.name = 'ReactNativeARKit'
+include ':react-native-mixpanel-bridge'
+project(':react-native-mixpanel-bridge').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-mixpanel-bridge/android')
 include ':react-native-camera'
 project(':react-native-camera').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-camera/android')
 include ':react-native-blur'

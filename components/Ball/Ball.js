@@ -9,6 +9,10 @@ import Dashboard from './Dashboard/Dashboard.js';
 import Menu from './Menu/Menu.js';
 import GeoToast, {DURATION} from '../GeoToast/GeoToast.js';
 
+import Mixpanel from 'react-native-mixpanel-bridge';
+
+Mixpanel.sharedInstanceWithToken('b3d15c441f08ec707ac568e5a738b547');
+
 let style = {
     bg: {
       flex: 1, backgroundColor: '#000', height: '100%'
@@ -36,6 +40,7 @@ export default class Ball extends Component {
   }
 
   componentDidMount = () => {
+    Mixpanel.track(`launch`);
     this.refs.toast.show('正在启动阶段 请把您的手机保持静止', 6000);
     this.checkCameraStatus();
   }
@@ -67,6 +72,7 @@ export default class Ball extends Component {
    **/
   triggerMenuSelect = (type) => {
     if (!this.state.isCameraAuth) {
+      Mixpanel.track(`camera-block`);
       this.checkCameraStatus(); return;
     }
 
@@ -75,6 +81,7 @@ export default class Ball extends Component {
     this.state.rotate = 0; //reset
     this.state.size = 1; //reset
     this.state.diffuse = 'white'; //reset
+    Mixpanel.track(type);
     this.setState(this.state);
   }
 
@@ -110,6 +117,7 @@ export default class Ball extends Component {
    * @
    **/
   triggerFeedbackSelect = () => {
+    Mixpanel.track(`feedback`);
     this.props.onTriggerFeedbackSelect()
   }
 
@@ -120,6 +128,7 @@ export default class Ball extends Component {
    * @
    **/
   triggerPrivacySelect = () => {
+    Mixpanel.track(`privacy`);
     this.props.onTriggerPrivacySelect()
   }
 
@@ -140,6 +149,7 @@ export default class Ball extends Component {
    * @
    **/
   triggerSwitchRotate = (rotate) => {
+    Mixpanel.track(`rotate`);
     this.state.rotate = rotate;
     this.setState(this.state);
   }
@@ -151,6 +161,7 @@ export default class Ball extends Component {
    * @
    **/
   triggerSwitchSize = (size) => {
+    Mixpanel.track(`size`);
     this.state.size = size;
     this.setState(this.state);
   }
@@ -161,6 +172,7 @@ export default class Ball extends Component {
    * @
    **/
   triggerSwitchColor = (color) => {
+    Mixpanel.track(`color`);
     this.state.diffuse = color;
     this.setState(this.state);
   }
