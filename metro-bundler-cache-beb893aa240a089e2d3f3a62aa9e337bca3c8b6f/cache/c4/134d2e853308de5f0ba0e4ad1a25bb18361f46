@@ -85,7 +85,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
     var _this = _possibleConstructorReturn(this, (Ball.__proto__ || Object.getPrototypeOf(Ball)).call(this, props));
 
     _this.componentDidMount = function () {
-      _this.refs.toast.show('正在初始化阶段 请把您的手机镜头保持平稳', 6000);
+      _this.refs.toast.show('正在启动阶段 请把您的手机保持静止', 6000);
       _this.checkCameraStatus();
     };
 
@@ -130,6 +130,10 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
       _this.props.onTriggerFeedbackSelect();
     };
 
+    _this.triggerPrivacySelect = function () {
+      _this.props.onTriggerPrivacySelect();
+    };
+
     _this.triggerSwitchMenu = function () {
       _this.state.isMenuShow = true;
       _this.setState(_this.state);
@@ -170,7 +174,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
         _reactNative.View,
         { style: style.bg, __source: {
             fileName: _jsxFileName,
-            lineNumber: 160
+            lineNumber: 170
           }
         },
         _react3.default.createElement(
@@ -180,7 +184,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             lightEstimationEnabled: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 161
+              lineNumber: 171
             }
           },
           this.state.type === 'square' && _react3.default.createElement(_reactNativeArkit.ARKit.Box, {
@@ -195,7 +199,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 167
+              lineNumber: 177
             }
           }),
           this.state.type === 'circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Sphere, {
@@ -210,7 +214,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 181
+              lineNumber: 191
             }
           }),
           this.state.type === 'triangle' && _react3.default.createElement(_reactNativeArkit.ARKit.Pyramid, {
@@ -225,7 +229,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 195
+              lineNumber: 205
             }
           }),
           this.state.type === 'x-circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Cone, {
@@ -240,7 +244,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 210
+              lineNumber: 220
             }
           }),
           this.state.type === 'plus-square' && _react3.default.createElement(_reactNativeArkit.ARKit.Box, {
@@ -255,7 +259,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 225
+              lineNumber: 235
             }
           }),
           this.state.type === 'plus-circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Cylinder, {
@@ -270,7 +274,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 240
+              lineNumber: 250
             }
           }),
           _react3.default.createElement(_reactNativeArkit.ARKit.Light, {
@@ -279,7 +283,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             color: 'white',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 253
+              lineNumber: 263
             }
           }),
           _react3.default.createElement(_reactNativeArkit.ARKit.Light, {
@@ -291,7 +295,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             color: 'purple',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 258
+              lineNumber: 268
             }
           }),
           this.state.isMenuShow && _react3.default.createElement(_Menu2.default, {
@@ -302,12 +306,15 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             onClickNavigateFeedback: function onClickNavigateFeedback() {
               return _this2.triggerFeedbackSelect();
             },
+            onClickNavigatePrivacy: function onClickNavigatePrivacy() {
+              return _this2.triggerPrivacySelect();
+            },
             onClickClose: function onClickClose() {
               return _this2.triggerMenuClose();
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 268
+              lineNumber: 278
             }
           }),
           !this.state.isMenuShow && _react3.default.createElement(_Dashboard2.default, {
@@ -327,12 +334,12 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
               return _this2.triggerSwitchColor(color);
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 277
+              lineNumber: 288
             }
           }),
-          _react3.default.createElement(_GeoToast2.default, { position: 'top', positionValue: 20, ref: 'toast', __source: {
+          _react3.default.createElement(_GeoToast2.default, { position: 'top', positionValue: 30, ref: 'toast', __source: {
               fileName: _jsxFileName,
-              lineNumber: 284
+              lineNumber: 295
             }
           })
         )

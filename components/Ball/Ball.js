@@ -36,7 +36,7 @@ export default class Ball extends Component {
   }
 
   componentDidMount = () => {
-    this.refs.toast.show('正在初始化阶段 请把您的手机镜头保持平稳', 6000);
+    this.refs.toast.show('正在启动阶段 请把您的手机保持静止', 6000);
     this.checkCameraStatus();
   }
 
@@ -111,6 +111,16 @@ export default class Ball extends Component {
    **/
   triggerFeedbackSelect = () => {
     this.props.onTriggerFeedbackSelect()
+  }
+
+
+  /*
+   * @
+   * @ 触发隐私协议
+   * @
+   **/
+  triggerPrivacySelect = () => {
+    this.props.onTriggerPrivacySelect()
   }
 
   /*
@@ -269,6 +279,7 @@ export default class Ball extends Component {
            ref="menu"
            onClickNavigateBall={(type) => this.triggerMenuSelect(type)}
            onClickNavigateFeedback={() => this.triggerFeedbackSelect()}
+           onClickNavigatePrivacy={() => this.triggerPrivacySelect()}
            onClickClose={() => this.triggerMenuClose()}
           />
         }
@@ -281,7 +292,7 @@ export default class Ball extends Component {
            onClickSizeBtn={(size) => this.triggerSwitchSize(size)}
            onClickColor={(color) => this.triggerSwitchColor(color)}/>
         }
-        <GeoToast position={'top'} positionValue={20} ref="toast"/>
+        <GeoToast position={'top'} positionValue={30} ref="toast"/>
         </ARKit>
       </View>
     );

@@ -61,16 +61,15 @@ var style = {
         backgroundColor: '#24292e',
         position: 'absolute',
         overflow: 'hidden',
-        height: 76,
+        height: 66,
         left: 0,
         width: '100%',
         top: 0
     },
     back: {
         position: 'absolute',
-        textAlign: 'left',
-        paddingTop: 30,
-        paddingBottom: 32,
+        paddingTop: 34,
+        paddingBottom: 28,
         width: 80,
         flex: 1,
         left: 0,
@@ -78,9 +77,8 @@ var style = {
     },
     submit: {
         position: 'absolute',
-        textAlign: 'right',
-        paddingTop: 30,
-        paddingBottom: 32,
+        paddingTop: 34,
+        paddingBottom: 28,
         flex: 1,
         right: 0,
         paddingRight: 16
@@ -93,7 +91,7 @@ var style = {
         backgroundColor: '#E1E1E1',
         position: 'absolute',
         textAlign: 'justify',
-        top: 60,
+        top: 80,
         width: '100%',
         minHeight: 200,
         paddingLeft: 16,
@@ -179,35 +177,35 @@ var FeedBack = _wrapComponent('FeedBack')(function (_Component) {
                 _reactNative.View,
                 { style: style.bg, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 139
+                        lineNumber: 137
                     }
                 },
                 _react3.default.createElement(
                     _reactNative.View,
                     { style: style.bar, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 140
+                            lineNumber: 138
                         }
                     },
                     _react3.default.createElement(
                         _reactNative.TouchableWithoutFeedback,
                         { onPress: this.props.navigator.pop, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 141
+                                lineNumber: 139
                             }
                         },
                         _react3.default.createElement(
                             _reactNative.View,
                             { style: style.back, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 141
+                                    lineNumber: 139
                                 }
                             },
                             _react3.default.createElement(
                                 _reactNative.Text,
                                 { style: style.text, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 141
+                                        lineNumber: 139
                                     }
                                 },
                                 this.state.back
@@ -218,21 +216,21 @@ var FeedBack = _wrapComponent('FeedBack')(function (_Component) {
                         _reactNative.TouchableWithoutFeedback,
                         { onPress: this.submit, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 142
+                                lineNumber: 140
                             }
                         },
                         _react3.default.createElement(
                             _reactNative.View,
                             { style: style.submit, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 142
+                                    lineNumber: 140
                                 }
                             },
                             _react3.default.createElement(
                                 _reactNative.Text,
                                 { style: style.text, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 142
+                                        lineNumber: 140
                                     }
                                 },
                                 '\u63D0\u4EA4'
@@ -253,14 +251,14 @@ var FeedBack = _wrapComponent('FeedBack')(function (_Component) {
                     value: this.state.text,
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 144
+                        lineNumber: 142
                     }
                 }),
                 _react3.default.createElement(
                     _reactNative.Text,
                     { style: style.line, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 154
+                            lineNumber: 152
                         }
                     },
                     '\u6211\u4EEC\u7684\u8054\u7CFB\u90AE\u7BB1: ',
@@ -268,15 +266,15 @@ var FeedBack = _wrapComponent('FeedBack')(function (_Component) {
                         _reactNative.Text,
                         { onPress: this.mail, style: style.mail, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 154
+                                lineNumber: 152
                             }
                         },
                         'meloalright@gmail.com'
                     )
                 ),
-                _react3.default.createElement(_GeoToast2.default, { position: 'top', positionValue: 20, ref: 'toast', __source: {
+                _react3.default.createElement(_GeoToast2.default, { position: 'top', positionValue: 30, ref: 'toast', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 155
+                        lineNumber: 153
                     }
                 })
             );

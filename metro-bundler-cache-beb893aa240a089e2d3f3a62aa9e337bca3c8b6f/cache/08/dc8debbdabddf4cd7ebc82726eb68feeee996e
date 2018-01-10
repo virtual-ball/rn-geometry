@@ -27,6 +27,10 @@ var _Feedback = require('./Feedback/Feedback.js');
 
 var _Feedback2 = _interopRequireDefault(_Feedback);
 
+var _Privacy = require('./Privacy/Privacy.js');
+
+var _Privacy2 = _interopRequireDefault(_Privacy);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67,11 +71,35 @@ var BallComponent = exports.BallComponent = _wrapComponent('BallComponent')(func
 
         var _this = _possibleConstructorReturn(this, (BallComponent.__proto__ || Object.getPrototypeOf(BallComponent)).call(this, props));
 
+        _this.navigateSigning = function () {
+            var dispatch = _this.props.dispatch;
+
+            _this.props.navigator.push({
+                component: Signing,
+                passProps: {},
+                title: '',
+                backButtonTitle: '',
+                leftButtonTitle: ''
+            });
+        };
+
         _this.navigateFeedback = function () {
             var dispatch = _this.props.dispatch;
 
             _this.props.navigator.push({
                 component: _Feedback2.default,
+                passProps: {},
+                title: '',
+                backButtonTitle: '',
+                leftButtonTitle: ''
+            });
+        };
+
+        _this.navigatePrivacy = function () {
+            var dispatch = _this.props.dispatch;
+
+            _this.props.navigator.push({
+                component: _Privacy2.default,
                 passProps: {},
                 title: '',
                 backButtonTitle: '',
@@ -86,9 +114,13 @@ var BallComponent = exports.BallComponent = _wrapComponent('BallComponent')(func
     _createClass(BallComponent, [{
         key: 'render',
         value: function render() {
-            return _react3.default.createElement(_Ball2.default, _extends({}, this.props, { onReload: this.reload, onTriggerFeedbackSelect: this.navigateFeedback, __source: {
+            return _react3.default.createElement(_Ball2.default, _extends({}, this.props, {
+                onReload: this.reload,
+                onTriggerFeedbackSelect: this.navigateFeedback,
+                onTriggerPrivacySelect: this.navigatePrivacy,
+                __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 33
+                    lineNumber: 66
                 }
             }));
         }
@@ -122,7 +154,7 @@ var Navigator = _wrapComponent('Navigator')(function (_Component2) {
                 style: { flex: 1 },
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 48
+                    lineNumber: 86
                 }
             });
         }

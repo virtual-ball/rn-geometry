@@ -15,16 +15,15 @@ let style = {
         backgroundColor: '#24292e',
         position: 'absolute',
         overflow: 'hidden',
-        height: 76,
+        height: 66,
         left: 0,
         width: '100%',
         top: 0
     },
     back: {
         position: 'absolute',
-        textAlign: 'left',
-        paddingTop: 30,
-        paddingBottom: 32,
+        paddingTop: 34,
+        paddingBottom: 28,
         width: 80,
         flex: 1,
         left: 0,
@@ -32,9 +31,8 @@ let style = {
     },
     submit: {
         position: 'absolute',
-        textAlign: 'right',
-        paddingTop: 30,
-        paddingBottom: 32,
+        paddingTop: 34,
+        paddingBottom: 28,
         flex: 1,
         right: 0,
         paddingRight: 16
@@ -47,7 +45,7 @@ let style = {
         backgroundColor: '#E1E1E1',
         position: 'absolute',
         textAlign: 'justify',
-        top: 60,
+        top: 80,
         width: '100%',
         minHeight: 200,
         paddingLeft: 16,
@@ -152,7 +150,7 @@ export default class FeedBack extends Component {
                     value={this.state.text}
                   />
                 <Text style={style.line}>我们的联系邮箱: <Text onPress={this.mail} style={style.mail}>meloalright@gmail.com</Text></Text>
-                <GeoToast position={'top'} positionValue={20} ref="toast"/>
+                <GeoToast position={'top'} positionValue={30} ref="toast"/>
             </View>
         );
     }

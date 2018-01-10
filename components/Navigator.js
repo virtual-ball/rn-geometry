@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, NavigatorIOS } from 'react-native';
-import Ball from './Ball/Ball.js'
-import Feedback from './Feedback/Feedback.js'
+import Ball from './Ball/Ball.js';
+import Feedback from './Feedback/Feedback.js';
+import Privacy from './Privacy/Privacy.js';
 
 let style = {};
 
@@ -10,6 +11,22 @@ export class BallComponent extends Component {
     constructor(props){
         super(props);
         this.state = {};
+    }
+
+    /*
+     * @
+     * @ 跳转到Signing页
+     * @
+     **/
+    navigateSigning = () => {
+      const {dispatch} = this.props;
+      this.props.navigator.push({
+          component: Signing,
+          passProps: {},
+          title: '',
+          backButtonTitle: '',
+          leftButtonTitle: ''
+      });
     }
 
     /*
@@ -28,9 +45,30 @@ export class BallComponent extends Component {
       });
     }
 
+    /*
+     * @
+     * @ 跳转到Privacy页
+     * @
+     **/
+    navigatePrivacy = () => {
+      const {dispatch} = this.props;
+      this.props.navigator.push({
+          component: Privacy,
+          passProps: {},
+          title: '',
+          backButtonTitle: '',
+          leftButtonTitle: ''
+      });
+    }
+
     render() {
         return (
-            <Ball {...this.props} onReload={this.reload} onTriggerFeedbackSelect={this.navigateFeedback}/>
+            <Ball 
+                {...this.props} 
+                onReload={this.reload} 
+                onTriggerFeedbackSelect={this.navigateFeedback}
+                onTriggerPrivacySelect={this.navigatePrivacy}
+            />
         );
     }
 }

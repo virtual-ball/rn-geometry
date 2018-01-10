@@ -1,0 +1,185 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Privacy/Privacy.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    Privacy: {
+        displayName: 'Privacy'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Privacy/Privacy.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var style = {
+    bg: {
+        backgroundColor: '#DDD',
+        flex: 1,
+        height: '100%'
+    },
+    bar: {
+        backgroundColor: '#24292e',
+        position: 'absolute',
+        overflow: 'hidden',
+        height: 66,
+        left: 0,
+        width: '100%',
+        top: 0
+    },
+    back: {
+        position: 'absolute',
+        paddingTop: 34,
+        paddingBottom: 28,
+        width: 80,
+        flex: 1,
+        left: 0,
+        paddingLeft: 16
+    },
+    backtext: {
+        color: '#EEE'
+    },
+    viewer: {
+        marginTop: 66,
+        width: '100%'
+    },
+    text: {
+        paddingTop: 0,
+        paddingBottom: 40,
+        paddingLeft: 16,
+        paddingRight: 16,
+        color: '#24292e',
+        textAlign: 'justify',
+        lineHeight: 20,
+        fontSize: 14
+    }
+};
+
+var Privacy = _wrapComponent('Privacy')(function (_Component) {
+    _inherits(Privacy, _Component);
+
+    function Privacy(props) {
+        _classCallCheck(this, Privacy);
+
+        var _this = _possibleConstructorReturn(this, (Privacy.__proto__ || Object.getPrototypeOf(Privacy)).call(this, props));
+
+        _this._ViewerComponent = function (data) {
+            return _react3.default.createElement(
+                _reactNative.Text,
+                { style: style.text, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 80
+                    }
+                },
+                data.item
+            );
+        };
+
+        _this.state = {
+            text: '',
+            back: '←   ',
+            data: ['用户隐私协议', '[小几何]会一贯保证用户的隐私信息，[小几何]将通过加密等技术手段及其他办法充分保护用户的个人隐私信息，除法律或有法律赋予权限的政府部门要求或事先得到用户明确授权等原因外，[小几何]保证不对外公开或向第三方透露用户个人隐私信息，或用户在使用服务时存储的非公开内容。', '同时，为了运营和改善[小几何]的技术与服务，[小几何]将可能会自行收集使用cookie或向第三方提供用户的非个人隐私信息，这将有助于[小几何]向用户提供更好的用户体验和服务质量。', '协议修改', '根据互联网的发展和有关法律、法规及规范性文件的变化，或者因业务发展需要，[小几何]有权对本协议的条款作出修改或变更，一旦本协议的内容发生变动，[小几何]将会通过公示的方式告知用户修改之后的协议内容，该通知行为视为[小几何]已经通知用户修改内容。', '[小几何]也可采用弹窗、信息流、电子邮件、电话或短信的传送方式，提示用户协议条款的修改、服务变更、或其它重要事项。', '如果不同意[小几何]对本协议相关条款所做的修改，用户有权并应当停止使用[小几何]。如果用户继续使用[小几何]，则视为用户接受[小几何]对本协议相关条款所做的修改。']
+        };
+        return _this;
+    }
+
+    _createClass(Privacy, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            _reactNative.StatusBar.setBarStyle('light-content', true);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            _reactNative.StatusBar.setBarStyle('default', true);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: style.bg, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 87
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: style.bar, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 88
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.TouchableWithoutFeedback,
+                        { onPress: this.props.navigator.pop, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 89
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: style.back, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 89
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                { style: style.backtext, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 89
+                                    }
+                                },
+                                this.state.back
+                            )
+                        )
+                    )
+                ),
+                _react3.default.createElement(_reactNative.FlatList, { data: this.state.data,
+                    extraData: this.state,
+                    renderItem: this._ViewerComponent,
+                    style: style.viewer, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 91
+                    }
+                })
+            );
+        }
+    }]);
+
+    return Privacy;
+}(_react2.Component));
+
+exports.default = Privacy;

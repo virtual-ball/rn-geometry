@@ -1,0 +1,179 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Signing/Signing.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    Signing: {
+        displayName: 'Signing'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/meloMacPro/Desktop/ar/rn-geometry/components/Signing/Signing.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var style = {
+    bg: {
+        backgroundColor: '#DDD',
+        flex: 1,
+        height: '100%'
+    },
+    bar: {
+        backgroundColor: '#24292e',
+        position: 'absolute',
+        overflow: 'hidden',
+        height: 66,
+        left: 0,
+        width: '100%',
+        top: 0
+    },
+    back: {
+        position: 'absolute',
+        paddingTop: 34,
+        paddingBottom: 28,
+        width: 80,
+        flex: 1,
+        left: 0,
+        paddingLeft: 16
+    },
+    viewer: {
+        position: 'absolute',
+        top: 60,
+        width: '100%',
+        minHeight: 200,
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingBottom: 20,
+        paddingTop: 20,
+        fontSize: 14,
+        lineHeight: 26,
+        color: '#24292e'
+    },
+    text: {
+        color: '#EEE',
+        fontSize: 14
+    }
+};
+
+var Signing = _wrapComponent('Signing')(function (_Component) {
+    _inherits(Signing, _Component);
+
+    function Signing(props) {
+        _classCallCheck(this, Signing);
+
+        var _this = _possibleConstructorReturn(this, (Signing.__proto__ || Object.getPrototypeOf(Signing)).call(this, props));
+
+        _this.state = { text: '', back: '←   ' };
+        return _this;
+    }
+
+    _createClass(Signing, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            _reactNative.StatusBar.setBarStyle('light-content', true);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            _reactNative.StatusBar.setBarStyle('default', true);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: style.bg, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 68
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: style.bar, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 69
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.TouchableWithoutFeedback,
+                        { onPress: this.props.navigator.pop, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 70
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: style.back, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 70
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                { style: style.text, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 70
+                                    }
+                                },
+                                this.state.back
+                            )
+                        )
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: style.viewer, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 72
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 73
+                            }
+                        },
+                        'sdsds\u54C1\u724C'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Signing;
+}(_react2.Component));
+
+exports.default = Signing;

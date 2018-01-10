@@ -51,6 +51,11 @@ export default class Menu extends Component {
         this.props.onClickNavigateFeedback()
     }
 
+    clickNavigatePrivacy = () => {
+        this.props.onClickNavigatePrivacy()
+    }
+
+
 
     setBlur = (num) => {
         this.state.blur = num;
@@ -95,6 +100,7 @@ export default class Menu extends Component {
      **/
     _ListFooterComponent = () => {
         return (
+            <View>
                 <TouchableWithoutFeedback
                     onPress={()=> {this.clickNavigateFeedback()}}
                     underlayColor="#EAEAEA">
@@ -104,6 +110,16 @@ export default class Menu extends Component {
                         </Text>
                     </View>
                 </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                    onPress={()=> {this.clickNavigatePrivacy()}}
+                    underlayColor="#EAEAEA">
+                    <View>
+                        <Text style={{lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF'}}>
+                            <Icon name={'lock'}  style={{fontSize: 23, color: '#FFF'}}/>  隐私协议
+                        </Text>
+                    </View>
+                </TouchableWithoutFeedback>
+            </View>
         )
     }
 
