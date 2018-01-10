@@ -4,6 +4,10 @@ import { View, Text, TextInput, Linking, Alert, StatusBar, TouchableWithoutFeedb
 import Icon from 'react-native-vector-icons/Feather';
 import GeoToast, {DURATION} from '../GeoToast/GeoToast.js';
 
+import Mixpanel from 'react-native-mixpanel-bridge';
+
+Mixpanel.sharedInstanceWithToken('b3d15c441f08ec707ac568e5a738b547');
+
 
 let style = {
     bg: {
@@ -97,6 +101,7 @@ export default class FeedBack extends Component {
             return;
         }
         this.refs.toast.show('提交中', 500);
+        Mixpanel.track(`feedback-${this.state.text}`);
         setTimeout(() => {
             this.refs.toast.show('提交成功', 500);
             this.props.navigator.pop()

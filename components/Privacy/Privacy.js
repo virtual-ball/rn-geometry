@@ -39,7 +39,7 @@ let style = {
         paddingBottom: 40,
         paddingLeft: 16,
         paddingRight: 16,
-        color: '#24292e',
+        color: '#777',
         textAlign: 'justify',
         lineHeight: 20,
         fontSize: 14
