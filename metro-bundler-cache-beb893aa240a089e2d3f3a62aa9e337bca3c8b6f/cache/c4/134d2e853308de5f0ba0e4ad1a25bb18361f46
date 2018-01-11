@@ -34,6 +34,10 @@ var _GeoToast = require('../GeoToast/GeoToast.js');
 
 var _GeoToast2 = _interopRequireDefault(_GeoToast);
 
+var _reactNativeMixpanelBridge = require('react-native-mixpanel-bridge');
+
+var _reactNativeMixpanelBridge2 = _interopRequireDefault(_reactNativeMixpanelBridge);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -61,6 +65,8 @@ function _wrapComponent(id) {
   };
 }
 
+_reactNativeMixpanelBridge2.default.sharedInstanceWithToken('b3d15c441f08ec707ac568e5a738b547');
+
 var style = {
   bg: {
     flex: 1, backgroundColor: '#000', height: '100%'
@@ -85,6 +91,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
     var _this = _possibleConstructorReturn(this, (Ball.__proto__ || Object.getPrototypeOf(Ball)).call(this, props));
 
     _this.componentDidMount = function () {
+      _reactNativeMixpanelBridge2.default.track('launch');
       _this.refs.toast.show('正在启动阶段 请把您的手机保持静止', 6000);
       _this.checkCameraStatus();
     };
@@ -104,6 +111,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
 
     _this.triggerMenuSelect = function (type) {
       if (!_this.state.isCameraAuth) {
+        _reactNativeMixpanelBridge2.default.track('camera-block');
         _this.checkCameraStatus();return;
       }
 
@@ -112,6 +120,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
       _this.state.rotate = 0;
       _this.state.size = 1;
       _this.state.diffuse = 'white';
+      _reactNativeMixpanelBridge2.default.track(type);
       _this.setState(_this.state);
     };
 
@@ -126,11 +135,25 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
 
     _this.triggerReload = function () {};
 
+    _this.triggerShare = function () {
+      _reactNative.Share.share({
+        message: '我发现了一款有趣的APP<立体几何>增强现实的立体几何应用',
+        url: 'https://virtual-west.github.io/geometry-share/',
+        title: '我发现了一款有趣的APP<立体几何>增强现实的立体几何应用'
+      }, {
+        excludedActivityTypes: ['com.apple.UIKit.activity.PostToTwitter']
+      }).then(_reactNativeMixpanelBridge2.default.track('social')).catch(function (error) {
+        return console.log(error);
+      });
+    };
+
     _this.triggerFeedbackSelect = function () {
+      _reactNativeMixpanelBridge2.default.track('feedback');
       _this.props.onTriggerFeedbackSelect();
     };
 
     _this.triggerPrivacySelect = function () {
+      _reactNativeMixpanelBridge2.default.track('privacy');
       _this.props.onTriggerPrivacySelect();
     };
 
@@ -140,16 +163,19 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
     };
 
     _this.triggerSwitchRotate = function (rotate) {
+      _reactNativeMixpanelBridge2.default.track('rotate');
       _this.state.rotate = rotate;
       _this.setState(_this.state);
     };
 
     _this.triggerSwitchSize = function (size) {
+      _reactNativeMixpanelBridge2.default.track('size');
       _this.state.size = size;
       _this.setState(_this.state);
     };
 
     _this.triggerSwitchColor = function (color) {
+      _reactNativeMixpanelBridge2.default.track('color');
       _this.state.diffuse = color;
       _this.setState(_this.state);
     };
@@ -174,7 +200,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
         _reactNative.View,
         { style: style.bg, __source: {
             fileName: _jsxFileName,
-            lineNumber: 170
+            lineNumber: 201
           }
         },
         _react3.default.createElement(
@@ -184,7 +210,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             lightEstimationEnabled: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 171
+              lineNumber: 202
             }
           },
           this.state.type === 'square' && _react3.default.createElement(_reactNativeArkit.ARKit.Box, {
@@ -199,7 +225,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 177
+              lineNumber: 208
             }
           }),
           this.state.type === 'circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Sphere, {
@@ -214,7 +240,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 191
+              lineNumber: 222
             }
           }),
           this.state.type === 'triangle' && _react3.default.createElement(_reactNativeArkit.ARKit.Pyramid, {
@@ -229,7 +255,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 205
+              lineNumber: 236
             }
           }),
           this.state.type === 'x-circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Cone, {
@@ -244,7 +270,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 220
+              lineNumber: 251
             }
           }),
           this.state.type === 'plus-square' && _react3.default.createElement(_reactNativeArkit.ARKit.Box, {
@@ -259,7 +285,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 235
+              lineNumber: 266
             }
           }),
           this.state.type === 'plus-circle' && _react3.default.createElement(_reactNativeArkit.ARKit.Cylinder, {
@@ -274,7 +300,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             material: { diffuse: this.state.diffuse },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 250
+              lineNumber: 281
             }
           }),
           _react3.default.createElement(_reactNativeArkit.ARKit.Light, {
@@ -283,7 +309,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             color: 'white',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 263
+              lineNumber: 294
             }
           }),
           _react3.default.createElement(_reactNativeArkit.ARKit.Light, {
@@ -295,7 +321,7 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             color: 'purple',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 268
+              lineNumber: 299
             }
           }),
           this.state.isMenuShow && _react3.default.createElement(_Menu2.default, {
@@ -309,12 +335,15 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
             onClickNavigatePrivacy: function onClickNavigatePrivacy() {
               return _this2.triggerPrivacySelect();
             },
+            onClickShare: function onClickShare() {
+              return _this2.triggerShare();
+            },
             onClickClose: function onClickClose() {
               return _this2.triggerMenuClose();
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 278
+              lineNumber: 309
             }
           }),
           !this.state.isMenuShow && _react3.default.createElement(_Dashboard2.default, {
@@ -334,12 +363,12 @@ var Ball = _wrapComponent('Ball')(function (_Component) {
               return _this2.triggerSwitchColor(color);
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 288
+              lineNumber: 320
             }
           }),
           _react3.default.createElement(_GeoToast2.default, { position: 'top', positionValue: 30, ref: 'toast', __source: {
               fileName: _jsxFileName,
-              lineNumber: 295
+              lineNumber: 327
             }
           })
         )

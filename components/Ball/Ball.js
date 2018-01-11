@@ -1,7 +1,7 @@
 // index.ios.js
 
 import { ARKit, withProjectedPosition } from 'react-native-arkit';
-import { AppRegistry, Dimensions, View, Alert } from 'react-native';
+import { AppRegistry, Dimensions, View, Alert, Share } from 'react-native';
 import React, { Component } from 'react';
 import Camera from 'react-native-camera';
 
@@ -108,6 +108,25 @@ export default class Ball extends Component {
    **/
   triggerReload = () => {
     //
+  }
+
+  /*
+   * @
+   * @ 触发share
+   * @
+   **/
+  triggerShare = () => {
+    Share.share({
+      message: '我发现了一款有趣的APP<立体几何>增强现实的立体几何应用',
+      url: 'https://virtual-west.github.io/geometry-share/',
+      title: '我发现了一款有趣的APP<立体几何>增强现实的立体几何应用'
+    }, {
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    })
+    .then(Mixpanel.track(`social`))
+    .catch((error) => console.log(error));
   }
 
 
@@ -292,6 +311,7 @@ export default class Ball extends Component {
            onClickNavigateBall={(type) => this.triggerMenuSelect(type)}
            onClickNavigateFeedback={() => this.triggerFeedbackSelect()}
            onClickNavigatePrivacy={() => this.triggerPrivacySelect()}
+           onClickShare={() => this.triggerShare()}
            onClickClose={() => this.triggerMenuClose()}
           />
         }

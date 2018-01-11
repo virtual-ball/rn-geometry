@@ -55,6 +55,10 @@ export default class Menu extends Component {
         this.props.onClickNavigatePrivacy()
     }
 
+    share = () => {
+        this.props.onClickShare()
+    }
+
 
 
     setBlur = (num) => {
@@ -116,6 +120,15 @@ export default class Menu extends Component {
                     <View>
                         <Text style={{lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF'}}>
                             <Icon name={'lock'}  style={{fontSize: 23, color: '#FFF'}}/>  隐私协议
+                        </Text>
+                    </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                    onPress={()=> {this.share()}}
+                    underlayColor="#EAEAEA">
+                    <View>
+                        <Text style={{lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF'}}>
+                            <Icon name={'aperture'}  style={{fontSize: 23, color: '#FFF'}}/>  分享给好友
                         </Text>
                     </View>
                 </TouchableWithoutFeedback>

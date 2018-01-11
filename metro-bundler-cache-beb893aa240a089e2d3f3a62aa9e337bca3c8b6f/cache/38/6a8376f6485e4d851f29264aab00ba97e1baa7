@@ -104,6 +104,10 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
             _this.props.onClickNavigatePrivacy();
         };
 
+        _this.share = function () {
+            _this.props.onClickShare();
+        };
+
         _this.setBlur = function (num) {
             _this.state.blur = num;
             _this.setState(_this.state);
@@ -122,7 +126,7 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                     },
                     underlayColor: '#EAEAEA', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 83
+                        lineNumber: 87
                     }
                 },
                 _react3.default.createElement(
@@ -130,19 +134,19 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 86
+                            lineNumber: 90
                         }
                     },
                     _react3.default.createElement(
                         _reactNative.Text,
                         { style: { lineHeight: 150, textAlign: 'center' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 87
+                                lineNumber: 91
                             }
                         },
                         _react3.default.createElement(_Feather2.default, { name: data.item.type, style: { fontSize: 40, color: '#FFF' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 88
+                                lineNumber: 92
                             }
                         })
                     )
@@ -156,7 +160,7 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 103
+                        lineNumber: 107
                     }
                 },
                 _react3.default.createElement(
@@ -167,7 +171,7 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                         },
                         underlayColor: '#EAEAEA', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 104
+                            lineNumber: 108
                         }
                     },
                     _react3.default.createElement(
@@ -175,19 +179,19 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 107
+                                lineNumber: 111
                             }
                         },
                         _react3.default.createElement(
                             _reactNative.Text,
                             { style: { lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF' }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 108
+                                    lineNumber: 112
                                 }
                             },
                             _react3.default.createElement(_Feather2.default, { name: 'calendar', style: { fontSize: 23, color: '#FFF' }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 109
+                                    lineNumber: 113
                                 }
                             }),
                             '  \u8054\u7CFB\u6211\u4EEC'
@@ -202,7 +206,7 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                         },
                         underlayColor: '#EAEAEA', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 113
+                            lineNumber: 117
                         }
                     },
                     _react3.default.createElement(
@@ -210,22 +214,57 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 116
+                                lineNumber: 120
                             }
                         },
                         _react3.default.createElement(
                             _reactNative.Text,
                             { style: { lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF' }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 117
+                                    lineNumber: 121
                                 }
                             },
                             _react3.default.createElement(_Feather2.default, { name: 'lock', style: { fontSize: 23, color: '#FFF' }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 118
+                                    lineNumber: 122
                                 }
                             }),
                             '  \u9690\u79C1\u534F\u8BAE'
+                        )
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.TouchableWithoutFeedback,
+                    {
+                        onPress: function onPress() {
+                            _this.share();
+                        },
+                        underlayColor: '#EAEAEA', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 126
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 129
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: { lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF' }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 130
+                                }
+                            },
+                            _react3.default.createElement(_Feather2.default, { name: 'aperture', style: { fontSize: 23, color: '#FFF' }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 131
+                                }
+                            }),
+                            '  \u5206\u4EAB\u7ED9\u597D\u53CB'
                         )
                     )
                 )
@@ -250,7 +289,7 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                     style: style.bg,
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 128
+                        lineNumber: 141
                     }
                 },
                 _react3.default.createElement(_reactNative.FlatList, { data: this.state.data,
@@ -259,7 +298,7 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                     ListFooterComponent: this._ListFooterComponent,
                     style: style.flatlist, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 133
+                        lineNumber: 146
                     }
                 }),
                 _react3.default.createElement(
@@ -267,14 +306,14 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                     {
                         onPress: this.close, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 139
+                            lineNumber: 152
                         }
                     },
                     _react3.default.createElement(
                         _reactNative.View,
                         { style: style.closeBtn, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 141
+                                lineNumber: 154
                             }
                         },
                         _react3.default.createElement(_Feather2.default, { name: 'x', style: {
@@ -285,7 +324,7 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
                                 color: '#FFF'
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 142
+                                lineNumber: 155
                             }
                         })
                     )
