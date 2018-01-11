@@ -116,6 +116,7 @@ export default class Ball extends Component {
    * @
    **/
   triggerShare = () => {
+    this.refs.toast.show('正在尝试分享到您的社交媒体', 2000);
     Share.share({
       message: '我发现了一款有趣的APP<立体几何>增强现实的立体几何应用',
       url: 'https://virtual-west.github.io/geometry-share/',

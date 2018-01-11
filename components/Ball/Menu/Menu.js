@@ -149,6 +149,7 @@ export default class Menu extends Component {
                 ListFooterComponent={this._ListFooterComponent}
                 style={style.flatlist}/>
 
+                {/** //无用
                 <TouchableWithoutFeedback
                     onPress={this.close}>
                     <View style={style.closeBtn}>
@@ -161,6 +162,7 @@ export default class Menu extends Component {
                         }}/>
                     </View>
                 </TouchableWithoutFeedback>
+                **/}
 
             </BlurView>
         );

@@ -39,6 +39,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>需要开启您的相机权限</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要开启您的照片权限</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
