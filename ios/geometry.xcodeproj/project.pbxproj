@@ -41,7 +41,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeARKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeARKitTests.m */; };
 		4B4F2B3EF0774EFA87A3D2DA /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F69B4F7736466A89D7599E /* libicucore.tbd */; };
 		4F1158732007BA2700F823BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1158722007BA2700F823BB /* Images.xcassets */; };
-		4FBDE90D2007ADAA00DB7E41 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDE90C2007ADAA00DB7E41 /* main.jsbundle */; };
+		4F7CB8FB200FAA45002BC4D0 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 4F7CB8FA200FAA44002BC4D0 /* main.jsbundle */; };
 		50012AF880B04DFDB4026EDA /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96572630890D486883487C9D /* FontAwesome.ttf */; };
 		5259E2CE676142B18E867C95 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CE0F54E38E1494AA4027525 /* MaterialCommunityIcons.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -410,7 +410,7 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* ReactNativeARKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactNativeARKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ReactNativeARKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ReactNativeARKitTests.xctest; path = geometryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ReactNativeARKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeARKitTests.m; sourceTree = "<group>"; };
 		06D7AFDF47E244EFB3E3ED95 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -421,7 +421,7 @@
 		10B8CA641F2074FD003D1F14 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* ReactNativeARKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeARKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* ReactNativeARKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ReactNativeARKit.app; path = geometry.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeARKit/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ReactNativeARKit/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeARKit/Images.xcassets; sourceTree = "<group>"; };
@@ -434,7 +434,7 @@
 		2D02E4901E0B4A5D006451C7 /* geometry-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "geometry-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E7A320952243529B327387 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		4F1158722007BA2700F823BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = geometry/Images.xcassets; sourceTree = "<group>"; };
-		4FBDE90C2007ADAA00DB7E41 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../release_ios/main.jsbundle; sourceTree = "<group>"; };
+		4F7CB8FA200FAA44002BC4D0 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../release_ios/main.jsbundle; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		60180AD567EE41B59C70A1B1 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		69F69B4F7736466A89D7599E /* libicucore.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
@@ -637,7 +637,7 @@
 		13B07FAE1A68108700A75B9A /* ReactNativeARKit */ = {
 			isa = PBXGroup;
 			children = (
-				4FBDE90C2007ADAA00DB7E41 /* main.jsbundle */,
+				4F7CB8FA200FAA44002BC4D0 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -1338,13 +1338,13 @@
 				88386624C82540EBB8A2DFCE /* EvilIcons.ttf in Resources */,
 				132FE753ECCD48DD9EDF261A /* Feather.ttf in Resources */,
 				50012AF880B04DFDB4026EDA /* FontAwesome.ttf in Resources */,
+				4F7CB8FB200FAA45002BC4D0 /* main.jsbundle in Resources */,
 				4F1158732007BA2700F823BB /* Images.xcassets in Resources */,
 				7424134D3FF444E2A453A965 /* Foundation.ttf in Resources */,
 				88DC1B77D48C4F3B95529B3A /* Ionicons.ttf in Resources */,
 				5259E2CE676142B18E867C95 /* MaterialCommunityIcons.ttf in Resources */,
 				F3AF6ED346374CADAC5146F6 /* MaterialIcons.ttf in Resources */,
 				2CCA9E7632E149AD855F5BDA /* Octicons.ttf in Resources */,
-				4FBDE90D2007ADAA00DB7E41 /* main.jsbundle in Resources */,
 				984B8DA2B79A482BAD7FF1C1 /* SimpleLineIcons.ttf in Resources */,
 				D8FBDE8D58C0445398E29B5D /* Zocial.ttf in Resources */,
 			);

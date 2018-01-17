@@ -55,7 +55,7 @@ export default class Ball extends Component {
           .then(access => {
                 if(!access) {
                     this.state.isCameraAuth = false;
-                    Alert.alert('需要启用相机权限', '请在iPhone的“设置-隐私”选项中,允许访问您的相机权限');
+                    Alert.alert('需要启用相机权限', '立体几何的增强现实功能需要以相机所获取画面为场景，因此需要开启您的相机权限，请在iPhone的“设置-隐私”选项中,允许访问您的相机权限');
                     this.setState(this.state)
                 }
                 else {

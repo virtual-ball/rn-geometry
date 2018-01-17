@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
@@ -38,9 +38,9 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>需要开启您的相机权限</string>
+	<string>立体几何的增强现实功能需要以相机所获取画面为场景，因此需要开启您的相机权限</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>需要开启您的照片权限</string>
+	<string>立体几何的增强现实功能需要以相机所获取画面为场景，相关图片存储功能需要开启您的相册权限</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
