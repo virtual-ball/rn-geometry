@@ -56,6 +56,10 @@
 		B1F888781FB8FB27005B1AA5 /* PocketSVG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F888591FB8FAF6005B1AA5 /* PocketSVG.framework */; };
 		B1F888791FB8FB35005B1AA5 /* PocketSVG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F888591FB8FAF6005B1AA5 /* PocketSVG.framework */; };
 		B1F8887A1FB8FB35005B1AA5 /* PocketSVG.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1F888591FB8FAF6005B1AA5 /* PocketSVG.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B69E328F2070D81300F1E846 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69E328E2070D81300F1E846 /* Images.xcassets */; };
+		B69E32912070D82A00F1E846 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69E32902070D82A00F1E846 /* Images.xcassets */; };
+		B69E32932070D83C00F1E846 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69E32922070D83B00F1E846 /* Images.xcassets */; };
+		B69E32992070D89700F1E846 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69E32982070D89700F1E846 /* Images.xcassets */; };
 		B74F528B8B234D9088B42276 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 233A838CE8584FA190364162 /* libRCTCamera.a */; };
 		D153461CAB054899B03F2949 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1BE5D91D7664906BA69DA9F /* Entypo.ttf */; };
 		D8FBDE8D58C0445398E29B5D /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06D7AFDF47E244EFB3E3ED95 /* Zocial.ttf */; };
@@ -451,6 +455,10 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B1F888531FB8FAF6005B1AA5 /* PocketSVG.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PocketSVG.xcodeproj; path = ../node_modules/_PocketSVG/PocketSVG.xcodeproj; sourceTree = "<group>"; };
 		B6470F7E4DE641E4BF850290 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		B69E328E2070D81300F1E846 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeARKit/Images.xcassets; sourceTree = "<group>"; };
+		B69E32902070D82A00F1E846 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeARKit/Images.xcassets; sourceTree = "<group>"; };
+		B69E32922070D83B00F1E846 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeARKit/Images.xcassets; sourceTree = "<group>"; };
+		B69E32982070D89700F1E846 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeARKit/Images.xcassets; sourceTree = "<group>"; };
 		BD98DCAEDC2C4B8D85311B75 /* RCTARKit.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTARKit.xcodeproj; path = "../node_modules/react-native-arkit/ios/RCTARKit.xcodeproj"; sourceTree = "<group>"; };
 		C1BE5D91D7664906BA69DA9F /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		D0C79C8788674B0180202F7D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
@@ -585,6 +593,7 @@
 		103395761F1DCD130070B4BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B69E32902070D82A00F1E846 /* Images.xcassets */,
 				10B8CA641F2074FD003D1F14 /* AVFoundation.framework */,
 				1017B6F01F1F386B00448C01 /* SceneKit.framework */,
 				1017B6EE1F1F37BB00448C01 /* ARKit.framework */,
@@ -706,6 +715,8 @@
 			isa = PBXGroup;
 			children = (
 				4F1158722007BA2700F823BB /* Images.xcassets */,
+				B69E328E2070D81300F1E846 /* Images.xcassets */,
+				B69E32922070D83B00F1E846 /* Images.xcassets */,
 				C1BE5D91D7664906BA69DA9F /* Entypo.ttf */,
 				26460E811A24475787030DE9 /* EvilIcons.ttf */,
 				D0C79C8788674B0180202F7D /* Feather.ttf */,
@@ -767,6 +778,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B69E32982070D89700F1E846 /* Images.xcassets */,
 				13B07FAE1A68108700A75B9A /* ReactNativeARKit */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ReactNativeARKitTests */,
@@ -1334,14 +1346,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B69E32912070D82A00F1E846 /* Images.xcassets in Resources */,
 				D153461CAB054899B03F2949 /* Entypo.ttf in Resources */,
 				88386624C82540EBB8A2DFCE /* EvilIcons.ttf in Resources */,
 				132FE753ECCD48DD9EDF261A /* Feather.ttf in Resources */,
 				50012AF880B04DFDB4026EDA /* FontAwesome.ttf in Resources */,
 				4F7CB8FB200FAA45002BC4D0 /* main.jsbundle in Resources */,
+				B69E328F2070D81300F1E846 /* Images.xcassets in Resources */,
 				4F1158732007BA2700F823BB /* Images.xcassets in Resources */,
+				B69E32992070D89700F1E846 /* Images.xcassets in Resources */,
 				7424134D3FF444E2A453A965 /* Foundation.ttf in Resources */,
 				88DC1B77D48C4F3B95529B3A /* Ionicons.ttf in Resources */,
+				B69E32932070D83C00F1E846 /* Images.xcassets in Resources */,
 				5259E2CE676142B18E867C95 /* MaterialCommunityIcons.ttf in Resources */,
 				F3AF6ED346374CADAC5146F6 /* MaterialIcons.ttf in Resources */,
 				2CCA9E7632E149AD855F5BDA /* Octicons.ttf in Resources */,

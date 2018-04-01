@@ -122,7 +122,7 @@ export default class FeedBack extends Component {
                 console.log('cancel')
             }, style: 'ok'},
             {text: '确认', onPress: () => {
-                let link = 'mailto:meloalright@gmail.com?subject=to:立体几何(来自立体几何iOS客户端0.0.1)';
+                let link = 'mailto:meloalright@gmail.com?subject=to:立体几何(来自立体几何iOS客户端0.0.2)';
                 Linking.canOpenURL(link).then(supported => { 
 
                     if (!supported) { 
