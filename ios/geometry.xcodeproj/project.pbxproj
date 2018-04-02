@@ -1569,7 +1569,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = geometry.meloalright;
+				PRODUCT_BUNDLE_IDENTIFIER = geometry.ar.meloalright;
 				PRODUCT_NAME = geometry.temp_caseinsensitive_rename;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1600,7 +1600,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = geometry.meloalright;
+				PRODUCT_BUNDLE_IDENTIFIER = geometry.ar.meloalright;
 				PRODUCT_NAME = geometry.temp_caseinsensitive_rename;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
