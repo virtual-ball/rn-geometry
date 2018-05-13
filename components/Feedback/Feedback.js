@@ -6,7 +6,7 @@ import GeoToast, {DURATION} from '../GeoToast/GeoToast.js';
 
 import Mixpanel from 'react-native-mixpanel-bridge';
 
-Mixpanel.sharedInstanceWithToken('b3d15c441f08ec707ac568e5a738b547');
+Mixpanel.sharedInstanceWithToken('340faeaf92669768d3f1db4a46d5ec7b');
 
 
 let style = {
@@ -122,7 +122,7 @@ export default class FeedBack extends Component {
                 console.log('cancel')
             }, style: 'ok'},
             {text: '确认', onPress: () => {
-                let link = 'mailto:meloalright@gmail.com?subject=to:立体几何(来自立体几何iOS客户端0.0.2)';
+                let link = 'mailto:meloalright@gmail.com?subject=to:立体几何(来自立体几何iOS客户端1.0.0)';
                 Linking.canOpenURL(link).then(supported => { 
 
                     if (!supported) { 

@@ -11,7 +11,7 @@ import GeoToast, {DURATION} from '../GeoToast/GeoToast.js';
 
 import Mixpanel from 'react-native-mixpanel-bridge';
 
-Mixpanel.sharedInstanceWithToken('b3d15c441f08ec707ac568e5a738b547');
+Mixpanel.sharedInstanceWithToken('340faeaf92669768d3f1db4a46d5ec7b');
 
 let style = {
     bg: {
@@ -108,6 +108,38 @@ export default class Ball extends Component {
    **/
   triggerReload = () => {
     //
+  }
+
+
+      
+
+  /*
+   * @
+   * @ 触发查看作者更多的AR应用
+   * @
+   **/
+  triggerAuthorPage = () => {
+        Alert.alert(
+          '是否允许打开[App-store]?',
+          '',
+          [
+            {text: '取消', onPress: () => {
+                console.log('cancel')
+            }, style: 'ok'},
+            {text: '确认', onPress: () => {
+                let link = 'https://itunes.apple.com/cn/developer/weihao-tang/id1310663480?mt=8';
+                Linking.canOpenURL(link).then(supported => { 
+
+                    if (!supported) { 
+                        this.refs.toast.show('无法打开[App-store]', 500);
+                    } 
+                    else { Mixpanel.track(`author-page`); return Linking.openURL(link);  } 
+                }).catch(err => this.refs.toast.show('无法打开[App-store]', 500));
+
+            }, style: 'cancel'}
+          ],
+          { cancelable: true }
+        );
   }
 
   /*
@@ -313,6 +345,7 @@ export default class Ball extends Component {
            onClickNavigateFeedback={() => this.triggerFeedbackSelect()}
            onClickNavigatePrivacy={() => this.triggerPrivacySelect()}
            onClickShare={() => this.triggerShare()}
+           onClickAuthorPage={() => this.triggerAuthorPage()}
            onClickClose={() => this.triggerMenuClose()}
           />
         }

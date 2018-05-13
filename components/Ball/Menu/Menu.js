@@ -55,6 +55,10 @@ export default class Menu extends Component {
         this.props.onClickNavigatePrivacy()
     }
 
+    authorPage = () => {
+        this.props.onClickAuthorPage()
+    }
+
     share = () => {
         this.props.onClickShare()
     }
@@ -120,6 +124,15 @@ export default class Menu extends Component {
                     <View>
                         <Text style={{lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF'}}>
                             <Icon name={'lock'}  style={{fontSize: 23, color: '#FFF'}}/>  隐私协议
+                        </Text>
+                    </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                    onPress={()=> {this.authorPage()}}
+                    underlayColor="#EAEAEA">
+                    <View>
+                        <Text style={{lineHeight: 150, textAlign: 'center', fontSize: 23, color: '#FFF'}}>
+                            <Icon name={'award'}  style={{fontSize: 23, color: '#FFF'}}/>  更多AR应用
                         </Text>
                     </View>
                 </TouchableWithoutFeedback>
